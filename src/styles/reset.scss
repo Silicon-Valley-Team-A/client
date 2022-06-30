@@ -85,6 +85,8 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  text-decoration: none;
+  color: black;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -106,12 +108,13 @@ section {
 body {
   line-height: normal;
   background-color: white;
-  font-family: "Nanum Square Round", sans-serif;
+  font-family: 'Nanum Square Round', sans-serif;
   font-weight: 400;
 }
 
 ol,
-ul {
+ul,
+li {
   list-style: none;
 }
 
@@ -123,7 +126,7 @@ q {
 blockquote {
   &:before,
   &:after {
-    content: "";
+    content: '';
     content: none;
   }
 }
@@ -131,7 +134,7 @@ blockquote {
 q {
   &:before,
   &:after {
-    content: "";
+    content: '';
     content: none;
   }
 }

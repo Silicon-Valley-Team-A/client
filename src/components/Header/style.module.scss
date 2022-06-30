@@ -1,0 +1,26 @@
+@import '/src/styles/color.scss';
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 5px 20px;
+  box-shadow: 0 4px 6px -6px $gray-1;
+
+  nav {
+    display: flex;
+    align-items: center;
+    div {
+      &:nth-child(1) {
+        margin-right: auto;
+      }
+      &:nth-child(2) {
+        margin-left: auto;
+        margin-right: 10px;
+        span {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+}

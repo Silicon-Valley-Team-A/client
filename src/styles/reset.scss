@@ -1,3 +1,6 @@
+@import './font.scss';
+@import './color.scss';
+
 html,
 body,
 div,
@@ -86,7 +89,7 @@ video {
   font: inherit;
   vertical-align: baseline;
   text-decoration: none;
-  color: black;
+  color: $black;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -107,9 +110,9 @@ section {
 
 body {
   line-height: normal;
-  background-color: white;
-  font-family: 'Nanum Square Round', sans-serif;
-  font-weight: 400;
+  background-color: $white;
+  font-family: 'EliceDigitalBaeum', sans-serif;
+  font-weight: 300;
 }
 
 ol,

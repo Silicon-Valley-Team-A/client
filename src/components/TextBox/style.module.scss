@@ -1,0 +1,23 @@
+.text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+
+  .title {
+    span {
+      width: fit-content;
+      margin-right: 5px;
+    }
+    strong {
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+
+  span {
+    display: inline-block;
+    width: 56%;
+    font-size: 15px;
+  }
+}

@@ -1,9 +1,79 @@
 {
-  "users": [
+  "myplaylist": [
     {
-      "id": "react_hoon",
-      "password": "1234",
-      "name": "훈훈한훈이"
+      "id": 0,
+      "list": [
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "list": [
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "list": [
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        },
+        {
+          "title": "love dive",
+          "singer": "'ive",
+          "imgurl": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90"
+        }
+      ]
     }
   ]
 }

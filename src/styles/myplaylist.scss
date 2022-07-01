@@ -1,0 +1,40 @@
+$out-container-background-color: #ff7f77;
+$playlist-container-background-color: #ffcccc;
+$inside-container-radius: 50px;
+
+.container {
+  width: 100%;
+  min-height: 700px;
+  background-color: $out-container-background-color;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.inside-container {
+  width: 80%;
+  min-height: 500px;
+  background-color: white;
+  border-radius: $inside-container-radius;
+}
+.playlist-title {
+  font-size: x-large;
+  margin: 20px;
+  margin-left: 40px;
+}
+.playlist-container {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 31% 31% 31%;
+}
+.playlist {
+  margin: 8px;
+  background-color: $playlist-container-background-color;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.playlist-thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}

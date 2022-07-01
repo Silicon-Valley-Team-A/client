@@ -1,21 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Login from './components/Login';
-import MyPlayList from './components/MyPlayList';
-import Signup from './components/Signup';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  BrowserRouter,
+} from 'react-router-dom';
 import './styles/reset.scss';
+import MyPlayListDetail from './pages/MyPlaylistDetail';
+import MyPlayList from './pages/MyPlaylist';
+import Login from './pages/Auth/Signin';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <BrowserRouter>
+      <div className="App">
         <Routes>
           <Route element={<Login />} path="/login" />
-          <Route element={<Signup />} path="/signup" />
           <Route element={<MyPlayList />} path="/myplaylist" />
+          <Route element={<MyPlayListDetail />} path="/myplaylist/:id" />
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

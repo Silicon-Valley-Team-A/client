@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/myplaylist.scss';
+import './myplaylist.scss';
 import axios from 'axios';
-import PlayListComponents from './PlayListComponents';
+import PlayListComponents from '../../components/Playlist';
+import { Link } from 'react-router-dom';
 
-function MyPlayList() {
+export default function MyPlayList() {
   type PlayList = {
     title: string;
     singer: string;
@@ -43,13 +44,19 @@ function MyPlayList() {
     <div>
       <div className="container">
         <div className="inside-container">
-          <h2 className="playlist-title">Name의 Playlists</h2>
+          <div className="playlist-title">Name의 Playlists</div>
           <hr />
           <div className="playlist-container">
             {allPlaylist.map((music: any) => {
-              console.log(music);
-              console.log(music.playlist);
-              return <PlayListComponents playlist={music.playlist} />;
+              return (
+                <Link to={'/myplaylist/' + music.id}>
+                  <PlayListComponents
+                    key={music.id}
+                    id={music.id}
+                    playlist={music.playlist}
+                  />
+                </Link>
+              );
             })}
           </div>
         </div>
@@ -57,5 +64,3 @@ function MyPlayList() {
     </div>
   );
 }
-
-export default MyPlayList;

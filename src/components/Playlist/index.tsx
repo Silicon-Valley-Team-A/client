@@ -1,10 +1,9 @@
 import React from 'react';
-import '../styles/myplaylist.scss';
+import './playlistComponent.scss';
 
-function PlayListComponents(playlist: any) {
-  console.log(playlist);
+export default function PlayListComponents(playlist: any) {
   return (
-    <div>
+    <section>
       <div className="playlist">
         {playlist.playlist.map((music: any) => {
           return (
@@ -14,9 +13,7 @@ function PlayListComponents(playlist: any) {
           );
         })}
       </div>
-      <div>playlist 1</div>
-    </div>
+      <div className="playlist-name">Playlist {playlist.id}</div>
+    </section>
   );
 }
-
-export default PlayListComponents;

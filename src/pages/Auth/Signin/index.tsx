@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Login() {
+export default function Login() {
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
 
@@ -39,5 +39,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

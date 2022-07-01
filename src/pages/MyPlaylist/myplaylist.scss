@@ -31,6 +31,10 @@ $font-weight2: 400;
     display: flex;
     padding: 20px;
     grid-template-columns: 25% 25% 25%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  PlayListComponents {
     justify-content: center;
     align-items: center;
   }

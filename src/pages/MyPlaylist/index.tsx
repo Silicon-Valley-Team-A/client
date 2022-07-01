@@ -41,24 +41,22 @@ export default function MyPlayList() {
   }, []);
 
   return (
-    <div>
-      <div className="container">
-        <div className="inside-container">
-          <div className="playlist-title">Name의 Playlists</div>
-          <hr />
-          <div className="playlist-container">
-            {allPlaylist.map((music: any) => {
-              return (
-                <Link to={'/myplaylist/' + music.id}>
-                  <PlayListComponents
-                    key={music.id}
-                    id={music.id}
-                    playlist={music.playlist}
-                  />
-                </Link>
-              );
-            })}
-          </div>
+    <div className="container">
+      <div className="inside-container">
+        <div className="playlist-title">Name의 Playlists</div>
+        <hr />
+        <div className="playlist-container">
+          {allPlaylist.map((music: any) => {
+            return (
+              <Link to={'/myplaylist/' + music.id}>
+                <PlayListComponents
+                  key={music.id}
+                  id={music.id}
+                  playlist={music.playlist}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -9,18 +9,18 @@ export const COLUMNS = [
   },
   {
     Header: '곡 제목',
-    accessor: 'last_name',
+    accessor: 'title',
   },
   {
     Header: '아티스트',
-    accessor: 'email',
+    accessor: 'artist',
   },
   {
     Header: '앨범',
-    accessor: 'gender',
+    accessor: 'album',
   },
   {
-    Header: '듣기',
-    accessor: 'listen',
+    Header: '재생',
+    accessor: 'play',
   },
 ];

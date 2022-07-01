@@ -1,37 +1,23 @@
 [
   {
     "id": 1,
-    "image": "Dallis",
-    "last_name": "Balchen",
-    "email": "dbalchen0@craigslist.org",
-    "gender": "Female"
+    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
+    "title": "Paris in the rain",
+    "artist": "Lauv",
+    "album": "I met you when I was 18"
   },
   {
     "id": 2,
-    "first_name": "Jarred",
-    "last_name": "Lias",
-    "email": "jlias1@statcounter.com",
-    "gender": "Male"
+    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
+    "title": "Paris in the rain",
+    "artist": "Lauv",
+    "album": "I met you when I was 18"
   },
   {
     "id": 3,
-    "first_name": "Doralynne",
-    "last_name": "McGarrahan",
-    "email": "dmcgarrahan2@fema.gov",
-    "gender": "Female"
-  },
-  {
-    "id": 4,
-    "first_name": "Thatch",
-    "last_name": "Belk",
-    "email": "tbelk3@ycombinator.com",
-    "gender": "Male"
-  },
-  {
-    "id": 5,
-    "first_name": "Dwain",
-    "last_name": "Ledwitch",
-    "email": "dledwitch4@paginegialle.it",
-    "gender": "Male"
+    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
+    "title": "Love Dive",
+    "artist": "Ive",
+    "album": "Love Dive"
   }
 ]

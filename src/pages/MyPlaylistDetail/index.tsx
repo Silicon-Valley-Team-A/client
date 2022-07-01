@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import HashTag from '../../components/HashTag';
 import Table from '../../components/Table';
-import '../MyPlaylist/myplaylist.scss';
+import './myplaylistdetail.scss';
 
 export default function MyPlayListDetail() {
   return (
     <div className="container">
       <div className="inside-container">
-        <h2 className="playlist-title">Playlist 1</h2>
+        <div className="playlist-header">
+          <h2 className="playlist-title">Playlist 1</h2>
+          <div>
+            <div className="playlist-hashtag">
+              <HashTag word="구름" />
+              <HashTag word="하늘" />
+            </div>
+          </div>
+        </div>
         <hr />
         <Table />
       </div>

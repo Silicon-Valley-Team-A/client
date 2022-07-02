@@ -1,5 +1,6 @@
 .table {
   margin: 20px 0;
+  font-family: 'EliceDigitalBaeum';
   table {
     border-collapse: collapse;
     width: 100%;
@@ -19,11 +20,19 @@
   td {
     vertical-align: middle;
   }
-  table td,
+
   table th {
     border: 1px solid #ddd;
     padding: 8px;
+    font-weight: 400;
   }
+
+  table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-weight: 300;
+  }
+
   table tr:nth-child(even) {
     background-color: #f2f2f2;
   }

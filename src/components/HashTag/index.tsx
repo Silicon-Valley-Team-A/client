@@ -1,8 +1,12 @@
-import React from 'react';
+import './hashtag.scss';
 interface Props {
   word: string;
 }
 
 export default function HashTag({ word }: Props) {
-  return <div className="hashtag"># {word}</div>;
+  return (
+    <p className="hashtag">
+      <strong>#</strong> {word}
+    </p>
+  );
 }

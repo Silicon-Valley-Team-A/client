@@ -1,18 +1,27 @@
 @import '../MyPlaylist/myplaylist.scss';
-.playlist-header {
-  display: flex;
+
+.container-center {
   align-items: center;
-  .hashtag {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  .playlist-header {
     display: flex;
-    border: 2px solid $gray-3;
-    border-radius: 10px;
-    padding: 5px 15px 5px 15px;
-    margin: 13px 8px 8px 8px;
-    background-color: $primary-3;
-    color: $black;
-    font-weight: 400;
-  }
-  .playlist-hashtag {
-    display: flex;
+    align-items: center;
+    .hashtag {
+      display: flex;
+      border: 2px solid $gray-3;
+      border-radius: 10px;
+      padding: 5px 15px 5px 15px;
+      margin: 13px 8px 8px 8px;
+      background-color: $primary-3;
+      color: $black;
+      font-weight: 400;
+    }
+    .playlist-hashtag {
+      display: flex;
+    }
   }
 }

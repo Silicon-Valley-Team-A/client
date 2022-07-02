@@ -66,7 +66,7 @@ export default function Table() {
                   } else if (cell.column.id === 'play') {
                     return (
                       <td>
-                        <IoIosPlay size={32} color="skyblue" />
+                        <IoIosPlay size={32} color="#329dff" />
                       </td>
                     );
                   } else {

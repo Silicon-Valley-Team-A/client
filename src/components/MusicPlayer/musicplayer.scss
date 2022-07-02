@@ -1,0 +1,67 @@
+@import '../../styles/color.scss';
+
+.player_container {
+  width: 70%;
+  padding: 1rem;
+  color: rgb(218, 218, 218);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: $white;
+  > * {
+    padding: 1rem 0;
+    color: $primary-2;
+  }
+  .player_info {
+    display: flex;
+  }
+  .song_info {
+    font-family: 'EliceDigitalBaeum';
+    margin-right: 10px;
+    .title {
+      font-weight: 400;
+      color: $black;
+    }
+    .singer {
+      font-weight: 300;
+      color: $black;
+    }
+  }
+
+  .controls {
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+
+    .btn_action {
+      font-size: 2rem;
+      margin: 0 0.2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $gray-2;
+      }
+    }
+  }
+
+  .navigation {
+    width: 80%;
+
+    .navigation_wrapper {
+      min-width: 80%;
+      background-color: $gray-2;
+      height: 5px;
+      border-radius: 30px;
+      cursor: pointer;
+
+      .seek_bar {
+        width: 0;
+        height: 100%;
+        background-color: $primary-2;
+        border-radius: 30px;
+      }
+    }
+  }
+}

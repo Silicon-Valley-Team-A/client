@@ -2,16 +2,18 @@
 
 .content {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: $primary-1;
-  width: 100%;
+  width: 100vw;
   height: 60%;
 
   section {
-    min-width: 80%;
-    transform: translateY(55px);
+    transform: translateY(12%);
+    margin: 5%;
+    &:nth-child(1) {
+      min-width: 50%;
+    }
   }
 }
 

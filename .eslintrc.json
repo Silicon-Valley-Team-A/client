@@ -18,7 +18,7 @@
     "linebreak-style": 0,
     "no-array-constructor": "error",
     "no-new-object": "error",
-    "no-nested-ternary": "error",
+    "no-nested-ternary": 0,
     "import/prefer-default-export": 0,
     "prettier/prettier": 1,
     "import/extensions": 0,

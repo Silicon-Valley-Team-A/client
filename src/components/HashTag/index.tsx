@@ -5,9 +5,5 @@ interface Props {
 }
 
 export default function HashTag({ word }: Props) {
-  return (
-    <div className={$.hashtag}>
-      <p># {word}</p>
-    </div>
-  );
+  return <div className={$.hashtag}># {word}</div>;
 }

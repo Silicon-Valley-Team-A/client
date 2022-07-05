@@ -6,20 +6,16 @@ import { HeartBox, MusicFolder } from '../../Icon';
 import { useEffect, useState } from 'react';
 import LoadedPlayList from '../../components/LoadedPlayList';
 import { LoadPlayList } from '../../api/LoadPlayList';
-
-type MusicInfo = {
-  id: number;
-  albumImage: string;
-  title: string;
-  singer: string;
-  selected: boolean;
-};
+import Button from '../../components/Button';
+import { MusicInfo } from '../../types/main';
+import Popup from '../../components/Popup';
 
 export default function MainPage() {
   const [selectedImage, setSelectedImage] = useState<File>(); // 전송할 파일
   const [playList, setPlayList] = useState<MusicInfo[]>([]); // 총 플레이 리스트
   const [imageUrl, setImageUrl] = useState(''); // 받아온 url
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (selectedImage) {
@@ -38,17 +34,61 @@ export default function MainPage() {
     }
   }, [selectedImage]);
 
+  const selectAllOrClearMusic = () => {
+    const isEqualLen = playList.length === selectedMusic.length;
+
+    setPlayList(prevList =>
+      prevList.map(info => {
+        return { ...info, selected: !isEqualLen };
+      }),
+    );
+
+    setSelectedMusic(isEqualLen ? [] : playList);
+  };
+
+  const saveToPlayList = () => {
+    // fetch
+    if (selectedMusic.length) {
+      setShowPopup(true);
+      setPlayList(prevList =>
+        prevList.map(info => {
+          return { ...info, selected: false };
+        }),
+      );
+      setSelectedMusic([]);
+
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 2000);
+    }
+  };
+
   return (
     <>
       <div className={$.content}>
-        <section>
+        <div className={$['pop-up-box']}>
+          {showPopup && <Popup text={'플레이 리스트 생성 완료'} />}
+        </div>
+
+        <section className={$['image-box']}>
           <ImageUpload
             imageUrl={imageUrl}
             setSelectedImage={setSelectedImage}
           />
         </section>
         {selectedImage && (
-          <section>
+          <section className={$['play-list-box']}>
+            <div className={$['more-option']}>
+              <Button text={'플레이 리스트 저장'} onClick={saveToPlayList} />
+              <Button
+                text={
+                  playList.length === selectedMusic.length
+                    ? '선택 해제'
+                    : '전체 선택'
+                }
+                onClick={selectAllOrClearMusic}
+              />
+            </div>
             <LoadedPlayList
               list={playList}
               setPlayList={setPlayList}

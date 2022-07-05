@@ -5,14 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-
-type MusicInfo = {
-  id: number;
-  albumImage: string;
-  title: string;
-  singer: string;
-  selected: boolean;
-};
+import { MusicInfo } from '../../types/main';
 
 interface Props {
   list: MusicInfo[];
@@ -86,8 +79,8 @@ export default function LoadedPlayList({
                   height={50}
                 />
               </TableCell>
-              <TableCell align="center">{row.singer}</TableCell>
               <TableCell align="center">{row.title}</TableCell>
+              <TableCell align="center">{row.singer}</TableCell>
               <TableCell align="center">
                 <PlayArrowIcon sx={{ color: '#329dff' }} />
               </TableCell>

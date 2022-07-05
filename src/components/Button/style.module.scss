@@ -1,0 +1,11 @@
+@import 'src/styles/color.scss';
+
+.btn {
+  color: $white;
+  background-color: $primary-2;
+  border: 0;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px 5px;
+  cursor: pointer;
+}

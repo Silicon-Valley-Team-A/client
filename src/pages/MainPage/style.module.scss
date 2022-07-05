@@ -8,11 +8,23 @@
   width: 100vw;
   height: 60%;
 
-  section {
+  .pop-up-box {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+  }
+
+  .image-box {
+    min-width: 50%;
     transform: translateY(12%);
     margin: 5%;
-    &:nth-child(1) {
-      min-width: 50%;
+  }
+
+  .play-list-box {
+    transform: translateZ(-12%);
+    .more-option {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

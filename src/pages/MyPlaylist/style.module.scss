@@ -12,17 +12,16 @@ $font-weight2: 400;
   align-items: center;
   display: flex;
 
-  .inside-container {
+  section {
     width: 80%;
     min-height: 500px;
-    background-color: white;
+    background-color: $white;
     border-radius: $inside-container-radius;
   }
 
   .playlist-title {
     font-family: 'EliceDigitalBaeum';
     font-weight: 400;
-    font-size: 25px;
     font-size: x-large;
     margin: 20px;
     margin-left: 40px;

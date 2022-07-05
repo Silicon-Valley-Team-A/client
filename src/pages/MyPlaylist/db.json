@@ -2,7 +2,7 @@
   "myplaylist": [
     {
       "id": 0,
-      "list": [
+      "playlist": [
         {
           "title": "love dive",
           "singer": "'ive",
@@ -27,7 +27,7 @@
     },
     {
       "id": 1,
-      "list": [
+      "playlist": [
         {
           "title": "love dive",
           "singer": "'ive",
@@ -52,7 +52,7 @@
     },
     {
       "id": 2,
-      "list": [
+      "playlist": [
         {
           "title": "love dive",
           "singer": "'ive",

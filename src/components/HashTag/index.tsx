@@ -1,12 +1,13 @@
-import './hashtag.scss';
+import $ from './style.module.scss';
+
 interface Props {
   word: string;
 }
 
 export default function HashTag({ word }: Props) {
   return (
-    <p className="hashtag">
-      <strong>#</strong> {word}
-    </p>
+    <div className={$.hashtag}>
+      <p># {word}</p>
+    </div>
   );
 }

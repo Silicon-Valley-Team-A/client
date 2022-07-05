@@ -1,35 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import './myplaylist.scss';
+import $ from './style.module.scss';
+import './';
 import axios from 'axios';
 import PlayListComponents from '../../components/Playlist';
 import { Link } from 'react-router-dom';
 
-export default function MyPlayList() {
-  type PlayList = {
-    title: string;
-    singer: string;
-    imgurl: string;
-  };
-  type AllPlayList = {
-    id: number;
-    playlist: PlayList[];
-  };
+import { AllPlayList } from '../../types/playlist';
 
+export default function MyPlayList() {
   const [allPlaylist, setAllPlaylist] = useState<AllPlayList[]>([]);
 
   const getPlayListData = () => {
     axios
       .get('http://localhost:8888/myplaylist')
       .then(response => {
-        const responseAllPlaylist: AllPlayList[] = response.data.map(
-          (responseAllPlaylist: any) => {
-            return {
-              id: responseAllPlaylist.id,
-              playlist: responseAllPlaylist.list,
-            };
-          },
-        );
-
+        const responseAllPlaylist: AllPlayList[] = response.data;
         setAllPlaylist(responseAllPlaylist);
       })
       .catch(error => {
@@ -41,12 +26,12 @@ export default function MyPlayList() {
   }, []);
 
   return (
-    <div className="container">
-      <div className="inside-container">
-        <div className="playlist-title">Name의 Playlists</div>
+    <div className={$.container}>
+      <section>
+        <div className={$['playlist-title']}>Name의 Playlists</div>
         <hr />
-        <div className="playlist-container">
-          {allPlaylist.map((music: any) => {
+        <div className={$['playlist-container']}>
+          {allPlaylist.map((music: AllPlayList) => {
             return (
               <Link to={'/myplaylist/' + music.id}>
                 <PlayListComponents
@@ -58,7 +43,7 @@ export default function MyPlayList() {
             );
           })}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

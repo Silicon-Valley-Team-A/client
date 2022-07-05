@@ -13,7 +13,9 @@ export default function Login() {
     setInputPw(e.target.value);
   };
 
-  const onClickSubmit = (e: any): void => {
+  const onClickSubmit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ): void => {
     e.preventDefault();
   };
 

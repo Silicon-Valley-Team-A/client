@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
+    "title": "Paris in the rain",
+    "artist": "Lauv",
+    "album": "I met you when I was 18"
+  },
+  {
+    "id": 2,
+    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
+    "title": "Paris in the rain",
+    "artist": "Lauv",
+    "album": "I met you when I was 18"
+  },
+  {
+    "id": 3,
+    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
+    "title": "Love Dive",
+    "artist": "Ive",
+    "album": "Love Dive"
+  }
+]

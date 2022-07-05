@@ -38,7 +38,6 @@ export default function Table() {
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell: any) => {
-                  console.log(cell);
                   if (cell.column.id === 'image') {
                     return (
                       <td className={$['cell-img']} key={cell.row.id}>

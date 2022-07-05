@@ -1,0 +1,66 @@
+@import '../../styles/color.scss';
+
+.content {
+  width: 70%;
+  padding: 1rem;
+  color: $gray-2;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: $gray-3;
+  > * {
+    padding: 1rem 0;
+    color: $primary-2;
+  }
+  .player-container {
+    display: flex;
+
+    .song-info {
+      margin-right: 10px;
+      .title {
+        font-weight: 400;
+      }
+      .singer {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .controls {
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+
+    .btn_action {
+      font-size: 2rem;
+      margin: 0 0.2rem;
+      cursor: pointer;
+      color: $primary-2;
+
+      &:hover {
+        color: $gray-2;
+      }
+    }
+  }
+
+  .navigation {
+    width: 80%;
+
+    .navigation_wrapper {
+      min-width: 80%;
+      background-color: $gray-2;
+      height: 5px;
+      border-radius: 30px;
+      cursor: pointer;
+
+      .seek_bar {
+        width: 0;
+        height: 100%;
+        background-color: $primary-2;
+        border-radius: 30px;
+      }
+    }
+  }
+}

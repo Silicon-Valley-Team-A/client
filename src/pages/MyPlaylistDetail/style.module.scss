@@ -1,0 +1,18 @@
+@import '../MyPlaylist/style.module.scss';
+
+.container_detail {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  .playlist-header {
+    display: flex;
+    align-items: center;
+
+    .playlist-hashtag {
+      display: flex;
+    }
+  }
+}

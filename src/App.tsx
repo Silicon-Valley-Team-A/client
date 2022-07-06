@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import MyPlayList from './pages/MyPlaylist';
 import MyPlayListDetail from './pages/MyPlaylistDetail';
+import Login from './pages/Auth/Signin';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/*" element={<MainPage />} />
+          <Route path="/signin" element={<Login />} />
           <Route path="/myplaylist" element={<MyPlayList />} />
-          <Route element={<MyPlayListDetail />} path="/myplaylist/:id" />
+          <Route path="/myplaylist/:id" element={<MyPlayListDetail />} />
         </Routes>
       </div>
     </BrowserRouter>

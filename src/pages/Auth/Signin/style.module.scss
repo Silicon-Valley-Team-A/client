@@ -1,0 +1,61 @@
+@import '../../../styles/color.scss';
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  input,
+  button {
+    margin: 20px auto;
+    text-align: center;
+    font-size: larger;
+    font-weight: 400;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    width: 450px;
+    height: 45px;
+    padding: 14px 10px;
+    border: 0;
+    background: none;
+    display: block;
+    border: 1px solid $gray-1;
+    outline: none;
+    color: $black;
+    border-radius: 50px;
+  }
+
+  input[type='text']:focus,
+  input[type='password']:focus {
+    border-color: $primary-1;
+  }
+
+  button {
+    border-radius: 20px;
+    width: 220px;
+    height: 110px;
+    padding: 14px 10px;
+    align-items: flex-end;
+    border: 0;
+    font-weight: 400;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    color: $white;
+    font-size: xx-large;
+    font-family: 'EliceDigitalBaeum';
+  }
+  button:hover {
+    background: $gray-2;
+  }
+  .signin {
+    background-color: $primary-1;
+  }
+  .signup {
+    background-color: $primary-2;
+  }
+}

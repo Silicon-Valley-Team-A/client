@@ -55,7 +55,12 @@
   .signin {
     background-color: $primary-1;
   }
-  .signup {
+  .goto-signup {
     background-color: $primary-2;
+  }
+  .signup {
+    background-color: $primary-1;
+    width: 450px;
+    height: 90px;
   }
 }

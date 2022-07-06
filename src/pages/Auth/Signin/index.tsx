@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import $ from './style.module.scss';
+import { Link } from 'react-router-dom';
 
-export default function Login() {
-  const [inputId, setInputId] = useState('');
-  const [inputPw, setInputPw] = useState('');
+export default function Signin() {
+  const [signinId, setSigninId] = useState('');
+  const [signinPw, setSigninPw] = useState('');
 
   const handleInputId = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputId(e.target.value);
-    console.log(inputId);
+    setSigninId(e.target.value);
+    console.log(signinId);
   };
 
   const handleInputPw = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputPw(e.target.value);
+    setSigninPw(e.target.value);
   };
 
   const onClickSubmit = (
@@ -25,7 +26,7 @@ export default function Login() {
       <input
         type="text"
         name="id"
-        value={inputId}
+        value={signinId}
         placeholder="ID"
         onChange={handleInputId}
       />
@@ -33,16 +34,18 @@ export default function Login() {
         type="password"
         name="password"
         placeholder="PASSWORD"
-        value={inputPw}
+        value={signinPw}
         onChange={handleInputPw}
       />
       <div style={{ display: 'flex' }}>
         <button type="submit" className={$['signin']} onClick={onClickSubmit}>
           로그인
         </button>
-        <button type="submit" className={$['signup']} onClick={onClickSubmit}>
-          회원가입
-        </button>
+        <Link to={'/signup'}>
+          <button type="submit" className={$['goto-signup']}>
+            회원가입
+          </button>
+        </Link>
       </div>
     </div>
   );

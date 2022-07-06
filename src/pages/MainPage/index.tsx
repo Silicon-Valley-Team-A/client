@@ -9,6 +9,8 @@ import { LoadPlayList } from '../../api/LoadPlayList';
 import Button from '../../components/Button';
 import { MusicInfo } from '../../types/main';
 import Popup from '../../components/Popup';
+import Modal from '../../components/Modal';
+import ModalBack from '../../components/Modal/ModalBack';
 
 export default function MainPage() {
   const [selectedImage, setSelectedImage] = useState<File>(); // 전송할 파일
@@ -16,6 +18,7 @@ export default function MainPage() {
   const [imageUrl, setImageUrl] = useState(''); // 받아온 url
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
   const [showPopup, setShowPopup] = useState(false);
+  const [showInputModal, setShowInputModal] = useState(false);
 
   useEffect(() => {
     if (selectedImage) {
@@ -46,10 +49,13 @@ export default function MainPage() {
     setSelectedMusic(isEqualLen ? [] : playList);
   };
 
-  const saveToPlayList = () => {
-    // fetch
+  const saveToPlayList = (name: string) => {
     if (selectedMusic.length) {
+      // fetch
+      console.log(name);
+      setShowInputModal(false);
       setShowPopup(true);
+
       setPlayList(prevList =>
         prevList.map(info => {
           return { ...info, selected: false };
@@ -70,6 +76,18 @@ export default function MainPage() {
           {showPopup && <Popup text={'플레이 리스트 생성 완료'} />}
         </div>
 
+        <div className={$['save-box']}>
+          {showInputModal && (
+            <>
+              <Modal
+                saveToPlayList={saveToPlayList}
+                closeModal={() => setShowInputModal(false)}
+              />
+              <ModalBack closeModal={() => setShowInputModal(false)} />
+            </>
+          )}
+        </div>
+
         <section className={$['image-box']}>
           <ImageUpload
             imageUrl={imageUrl}
@@ -79,7 +97,10 @@ export default function MainPage() {
         {selectedImage && (
           <section className={$['play-list-box']}>
             <div className={$['more-option']}>
-              <Button text={'플레이 리스트 저장'} onClick={saveToPlayList} />
+              <Button
+                text={'플레이 리스트 저장'}
+                onClick={() => selectedMusic.length && setShowInputModal(true)}
+              />
               <Button
                 text={
                   playList.length === selectedMusic.length

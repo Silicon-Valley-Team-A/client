@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import $ from '../Signin/style.module.scss';
+import $ from '../style.module.scss';
 
 export default function Signup() {
   const [signupId, setSignupId] = useState('');
@@ -37,6 +37,7 @@ export default function Signup() {
 
   return (
     <div className={$.container}>
+      <header>sign up</header>
       <input
         type="text"
         name="id"

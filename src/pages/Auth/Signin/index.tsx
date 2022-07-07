@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import $ from './style.module.scss';
+import $ from '../style.module.scss';
 import { Link } from 'react-router-dom';
 
 export default function Signin() {
@@ -23,29 +23,32 @@ export default function Signin() {
 
   return (
     <div className={$.container}>
-      <input
-        type="text"
-        name="id"
-        value={signinId}
-        placeholder="ID"
-        onChange={handleInputId}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="PASSWORD"
-        value={signinPw}
-        onChange={handleInputPw}
-      />
-      <div style={{ display: 'flex' }}>
-        <button type="submit" className={$['signin']} onClick={onClickSubmit}>
-          로그인
-        </button>
-        <Link to={'/signup'}>
-          <button type="submit" className={$['goto-signup']}>
-            회원가입
+      <div>
+        <header>sign in</header>
+        <input
+          type="text"
+          name="id"
+          value={signinId}
+          placeholder="ID"
+          onChange={handleInputId}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="PASSWORD"
+          value={signinPw}
+          onChange={handleInputPw}
+        />
+        <div className={$['buttons']}>
+          <button type="submit" className={$['signin']} onClick={onClickSubmit}>
+            로그인
           </button>
-        </Link>
+          <Link to={'/signup'}>
+            <button type="submit" className={$['goto-signup']}>
+              회원가입
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

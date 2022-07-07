@@ -1,0 +1,83 @@
+@import '../../styles/color.scss';
+@import '../../styles/font.scss';
+$input-width: 300px;
+$input-height: 30px;
+$button-height: 50px;
+$signin-button-width: 140px;
+
+.container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  width: 300px;
+
+  header {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 20px;
+  }
+
+  input,
+  button {
+    margin: 10px 0;
+    font-weight: 400;
+    border-radius: 20px;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    width: $input-width;
+    height: $input-height;
+    padding: 10px 0;
+    border: 0;
+    background: $white;
+    display: block;
+    border: 1px solid $gray-1;
+    outline: none;
+
+    &::placeholder {
+      color: $gray-1;
+      padding-left: 20px;
+    }
+
+    &:focus {
+      border-color: $primary-1;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    width: $signin-button-width;
+    height: $button-height;
+    padding: 14px 10px;
+    border: 0;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    color: $white;
+    font-weight: 400;
+    font-family: 'EliceDigitalBaeum';
+    &:hover {
+      background: $gray-2;
+    }
+  }
+
+  .signin {
+    background-color: $primary-1;
+  }
+  .goto-signup {
+    background-color: $primary-2;
+  }
+  .signup {
+    background-color: $primary-1;
+    width: $input-width;
+  }
+}

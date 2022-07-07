@@ -1,0 +1,20 @@
+@import 'src/styles/color.scss';
+
+.list-box {
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 10px;
+  background-color: $white;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: $white;
+  }
+  .play-list {
+    cursor: pointer;
+  }
+}

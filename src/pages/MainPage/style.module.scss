@@ -2,21 +2,43 @@
 
 .content {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: $primary-1;
-  width: 100%;
-  height: 60%;
+  width: 100vw;
+  height: 400px;
 
-  section {
-    min-width: 80%;
-    transform: translateY(55px);
+  .pop-up-box {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+  }
+
+  .save-box {
+    position: absolute;
+    z-index: 5;
+  }
+
+  .image-box {
+    width: 100%;
+    min-width: 400px;
+    max-width: 850px;
+    transform: translateY(110px);
+    margin: 5%;
+  }
+
+  .play-list-box {
+    transform: translateY(80px);
+    margin: 5%;
+    .more-option {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }
 
 .more-text {
   display: flex;
   justify-content: space-between;
-  margin: 80px 15% 0;
+  margin: 200px 15% 0;
 }

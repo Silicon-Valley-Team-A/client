@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import MOCK_DATA from './MOCK_DATA.json';
-import { COLUMNS } from './COLUMNS';
+import { COLUMNS } from './columns';
 import { usePagination, useTable } from 'react-table';
 import $ from './style.module.scss';
 import { IoIosPlay } from 'react-icons/io';

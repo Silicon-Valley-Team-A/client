@@ -1,7 +1,7 @@
 import http from '../common/http';
-import { MusicInfo } from '../types/main';
+import { MusicInfo, ImageGenre } from '../types/main';
 
-const getPlayList = (imageFile: File) =>
+const getPlayList = (info: ImageGenre) =>
   http.get(`http://localhost:4000/playList/`);
 
 const savePlayList = (list: MusicInfo[]) =>

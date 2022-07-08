@@ -95,7 +95,7 @@ export default function MainPage() {
             </>
           )}
 
-          {selectedImage && !imageUrl && (
+          {selectedImage && !imageUrl && !selectedGenre && (
             <>
               <GenreModal setSelectedGenre={setSelectedGenre} />
               <ModalBack closeModal={() => setShowInputModal(false)} />
@@ -112,6 +112,7 @@ export default function MainPage() {
             imageUrl={imageUrl}
             setSelectedImage={setSelectedImage}
             setImageUrl={setImageUrl}
+            setSelectedGenre={setSelectedGenre}
           />
         </section>
 

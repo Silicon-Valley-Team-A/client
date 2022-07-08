@@ -11,12 +11,14 @@ interface Props {
   imageUrl?: string;
   setSelectedImage: React.Dispatch<React.SetStateAction<File | undefined>>;
   setImageUrl: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedGenre: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ImageUpload({
   imageUrl,
   setSelectedImage,
   setImageUrl,
+  setSelectedGenre,
 }: Props) {
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef<HTMLDivElement | null>(null);
@@ -50,6 +52,7 @@ export default function ImageUpload({
 
     if (e.type === 'drop') {
       setImageUrl('');
+      setSelectedGenre('');
       setSelectedImage(e.dataTransfer?.files[0]);
     }
     setIsDragging(false);

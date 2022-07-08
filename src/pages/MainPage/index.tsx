@@ -11,9 +11,12 @@ import { MusicInfo } from '../../types/main';
 import Popup from '../../components/Popup';
 import Modal from '../../components/Modal';
 import ModalBack from '../../components/Modal/ModalBack';
+import GenreModal from '../../components/GenreModal';
+import { matchGenreToEng } from '../../utils/matchGenreToEng';
 
 export default function MainPage() {
   const [selectedImage, setSelectedImage] = useState<File>(); // 전송할 파일
+  const [selectedGenre, setSelectedGenre] = useState('');
   const [playList, setPlayList] = useState<MusicInfo[]>([]); // 총 플레이 리스트
   const [imageUrl, setImageUrl] = useState(''); // 받아온 url
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
@@ -21,8 +24,13 @@ export default function MainPage() {
   const [showInputModal, setShowInputModal] = useState(false);
 
   useEffect(() => {
-    if (selectedImage) {
-      LoadPlayList(selectedImage)
+    if (selectedImage && selectedGenre) {
+      const imageGenre = {
+        image: selectedImage,
+        genre: matchGenreToEng(selectedGenre),
+      };
+
+      LoadPlayList(imageGenre)
         .then(data => {
           setImageUrl(data[0].imageUrl);
 
@@ -35,7 +43,7 @@ export default function MainPage() {
           console.log(err);
         });
     }
-  }, [selectedImage]);
+  }, [selectedGenre]);
 
   const selectAllOrClearMusic = () => {
     const isEqualLen = playList.length === selectedMusic.length;
@@ -83,6 +91,13 @@ export default function MainPage() {
                 saveToPlayList={saveToPlayList}
                 closeModal={() => setShowInputModal(false)}
               />
+              <ModalBack closeModal={() => setShowInputModal(false)} />
+            </>
+          )}
+
+          {selectedImage && !selectedGenre && (
+            <>
+              <GenreModal setSelectedGenre={setSelectedGenre} />
               <ModalBack closeModal={() => setShowInputModal(false)} />
             </>
           )}

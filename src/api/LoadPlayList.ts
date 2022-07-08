@@ -1,9 +1,9 @@
 import MainServices from '../services/MainServices';
-import { MusicInfo } from '../types/main';
+import { MusicInfo, ImageGenre } from '../types/main';
 
-export const LoadPlayList = async (imageFile: File) => {
+export const LoadPlayList = async (info: ImageGenre) => {
   try {
-    const res = await MainServices.getPlayList(imageFile);
+    const res = await MainServices.getPlayList(info);
     return Promise.resolve(res.data);
   } catch (err) {
     return Promise.reject(err);

@@ -109,7 +109,7 @@ export default function MainPage() {
             setSelectedImage={setSelectedImage}
           />
         </section>
-        {selectedImage && (
+        {selectedGenre && (
           <section className={$['play-list-box']}>
             <div className={$['more-option']}>
               <Button

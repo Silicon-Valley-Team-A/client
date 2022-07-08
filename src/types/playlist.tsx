@@ -4,6 +4,7 @@ export type PlayList = {
   imgurl: string;
 };
 export type AllPlayList = {
+  playlist_title: string;
   id: number;
   playlist: PlayList[];
 };

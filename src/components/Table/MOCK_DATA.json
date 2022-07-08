@@ -1,23 +1,52 @@
 [
   {
     "id": 1,
-    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
-    "title": "Paris in the rain",
-    "artist": "Lauv",
-    "album": "I met you when I was 18"
+    "image": "https://cdnimg.melon.co.kr/cm2/album/images/103/46/650/10346650_500.jpg/melon/resize/120/quality/80/optimize",
+    "title": "Bluming",
+    "artist": "IU",
+    "album": "Love poem"
   },
   {
     "id": 2,
-    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
-    "title": "Paris in the rain",
-    "artist": "Lauv",
-    "album": "I met you when I was 18"
+    "image": "https://upload.wikimedia.org/wikipedia/en/7/79/Ive_%E2%80%93_Love_Dive.jpg",
+    "title": "LOVE DIVE",
+    "artist": "Ive",
+    "album": "LOVE DIVE"
   },
   {
     "id": 3,
-    "image": "https://cdn.music-flo.com/image/v2/album/488/677/08/04/408677488_62bbb4ef_s.jpg?1656468721091/dims/resize/140x140/quality/90",
-    "title": "Love Dive",
-    "artist": "Ive",
-    "album": "Love Dive"
+    "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+    "title": "POP!",
+    "artist": "나연",
+    "album": "IM NAYEON"
+  },
+  {
+    "id": 3,
+    "image": "https://search.pstatic.net/common?type=n&size=190x190&quality=95&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F385%2F7385585.jpg%3Ftype%3Dr204Fll%26v%3D20220405155416",
+    "title": "TOMBOY",
+
+    "artist": "(여자) 아이들",
+    "album": "TOMBOY"
+  },
+  {
+    "id": 4,
+    "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+    "title": "POP!",
+    "artist": "나연",
+    "album": "IM NAYEON"
+  },
+  {
+    "id": 5,
+    "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+    "title": "POP!",
+    "artist": "나연",
+    "album": "IM NAYEON"
+  },
+  {
+    "id": 6,
+    "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+    "title": "POP!",
+    "artist": "나연",
+    "album": "IM NAYEON"
   }
 ]

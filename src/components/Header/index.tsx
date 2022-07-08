@@ -16,7 +16,7 @@ export default function Header() {
             <Link to="/signin">로그인</Link>
           </span>
           <span>
-            <Link to="/playlist">플레이 리스트</Link>
+            <Link to="/myplaylist">플레이 리스트</Link>
           </span>
         </div>
       </nav>

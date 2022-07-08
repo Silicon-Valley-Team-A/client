@@ -5,16 +5,15 @@ $font-weight1: 300;
 $font-weight2: 400;
 
 .container {
-  width: 100%;
-  min-height: 700px;
   background-color: $primary-1;
   justify-content: center;
   align-items: center;
   display: flex;
+  width: 100%;
+  height: 80%;
 
   section {
     width: 80%;
-    min-height: 500px;
     background-color: $white;
     border-radius: $inside-container-radius;
   }
@@ -27,14 +26,13 @@ $font-weight2: 400;
   }
 
   .playlist-container {
-    display: flex;
-    padding: 20px;
-    grid-template-columns: 25% 25% 25%;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  PlayListComponents {
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    padding: 40px;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+
+    .playlist-center {
+      justify-content: space-evenly;
+      display: flex;
+    }
   }
 }

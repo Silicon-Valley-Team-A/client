@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import HashTag from '../../components/HashTag';
 import MusicPlayer from '../../components/MusicPlayer';
 import Table from '../../components/Table';
@@ -10,7 +9,7 @@ export default function MyPlayListDetail() {
       <div className={$.container}>
         <section>
           <div className={$['playlist-header']}>
-            <h2 className={$['playlist-title']}>Playlist 1</h2>
+            <h2 className={$['playlist-title']}>playlist 1</h2>
             <div className={$['hashtag']}>
               <div className={$['playlist-hashtag']}>
                 <HashTag word="구름" />
@@ -22,7 +21,7 @@ export default function MyPlayListDetail() {
           <Table />
         </section>
       </div>
-      <MusicPlayer isPlaying={true} currentSong="Rain" currentSinger="태연" />
+      <MusicPlayer isPlaying={true} currentSong="POP!" currentSinger="나연" />
     </div>
   );
 }

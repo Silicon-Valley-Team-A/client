@@ -84,7 +84,7 @@ export default function MainPage() {
           {showPopup && <Popup text={'플레이 리스트 생성 완료'} />}
         </div>
 
-        <div className={$['save-box']}>
+        <div className={$['save-modal-box']}>
           {showInputModal && (
             <>
               <Modal
@@ -95,7 +95,7 @@ export default function MainPage() {
             </>
           )}
 
-          {selectedImage && !selectedGenre && (
+          {selectedImage && !imageUrl && (
             <>
               <GenreModal setSelectedGenre={setSelectedGenre} />
               <ModalBack closeModal={() => setShowInputModal(false)} />
@@ -111,8 +111,10 @@ export default function MainPage() {
           <ImageUpload
             imageUrl={imageUrl}
             setSelectedImage={setSelectedImage}
+            setImageUrl={setImageUrl}
           />
         </section>
+
         {selectedGenre && (
           <section className={$['play-list-box']}>
             <div className={$['more-option']}>
@@ -137,6 +139,7 @@ export default function MainPage() {
           </section>
         )}
       </div>
+
       <section className={$['more-text']}>
         <TextBox
           title={firstText.title}

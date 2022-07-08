@@ -25,6 +25,17 @@
     max-width: 850px;
     transform: translateY(110px);
     margin: 5%;
+    .genre-box {
+      display: flex;
+      width: fit-content;
+      color: $black;
+      background-color: #ffffff71;
+      padding: 7px;
+      margin: 5px 0;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 400;
+    }
   }
 
   .play-list-box {

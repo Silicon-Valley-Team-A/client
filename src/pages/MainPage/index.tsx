@@ -104,6 +104,10 @@ export default function MainPage() {
         </div>
 
         <section className={$['image-box']}>
+          {selectedGenre && (
+            <span className={$['genre-box']}>#{selectedGenre}</span>
+          )}
+
           <ImageUpload
             imageUrl={imageUrl}
             setSelectedImage={setSelectedImage}

@@ -1,5 +1,5 @@
 import MainServices from '../services/MainServices';
-import { MusicInfo, ImageGenre } from '../types/main';
+import { PlayListInfo, ImageGenre } from '../types/main';
 
 export const LoadPlayList = async (info: ImageGenre) => {
   try {
@@ -10,7 +10,7 @@ export const LoadPlayList = async (info: ImageGenre) => {
   }
 };
 
-export const SavePlayList = async (list: MusicInfo[]) => {
+export const SavePlayList = async (list: PlayListInfo) => {
   try {
     const res = await MainServices.savePlayList(list);
     return Promise.resolve(res.data);

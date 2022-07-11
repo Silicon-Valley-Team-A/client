@@ -5,7 +5,7 @@ import { firstText, secondText } from '../../__mocks/maintext';
 import { HeartBox, MusicFolder } from '../../Icon';
 import { useEffect, useState } from 'react';
 import LoadedPlayList from '../../components/LoadedPlayList';
-import { LoadPlayList } from '../../api/LoadPlayList';
+import { LoadPlayList, SavePlayList } from '../../api/LoadPlayList';
 import Button from '../../components/Button';
 import { MusicInfo } from '../../types/main';
 import Popup from '../../components/Popup';
@@ -13,6 +13,7 @@ import Modal from '../../components/Modal';
 import ModalBack from '../../components/Modal/ModalBack';
 import GenreModal from '../../components/GenreModal';
 import { matchGenreToEng } from '../../utils/matchGenreToEng';
+import MusicPlayer from '../../components/MusicPlayer';
 
 export default function MainPage() {
   const [selectedImage, setSelectedImage] = useState<File>(); // 전송할 파일
@@ -22,6 +23,7 @@ export default function MainPage() {
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
   const [showPopup, setShowPopup] = useState(false);
   const [showInputModal, setShowInputModal] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (selectedImage && selectedGenre) {
@@ -60,20 +62,37 @@ export default function MainPage() {
   const saveToPlayList = (name: string) => {
     if (selectedMusic.length) {
       // fetch
-      console.log(name);
-      setShowInputModal(false);
-      setShowPopup(true);
-
-      setPlayList(prevList =>
-        prevList.map(info => {
-          return { ...info, selected: false };
+      const songInfo = {
+        user_id: 1,
+        name: name,
+        tag: selectedGenre,
+        songs: selectedMusic.map(({ selected, ...remain }) => {
+          return {
+            ...remain,
+          };
         }),
-      );
-      setSelectedMusic([]);
+      };
 
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 2000);
+      SavePlayList(songInfo)
+        .then(data => {
+          console.log(data);
+          setShowInputModal(false);
+          setShowPopup(true);
+
+          setPlayList(prevList =>
+            prevList.map(info => {
+              return { ...info, selected: false };
+            }),
+          );
+          setSelectedMusic([]);
+
+          setTimeout(() => {
+            setShowPopup(false);
+          }, 2000);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
 
@@ -123,6 +142,7 @@ export default function MainPage() {
                 text={'플레이 리스트 저장'}
                 onClick={() => selectedMusic.length && setShowInputModal(true)}
               />
+              <Button text={'선택 재생'} onClick={() => setIsPlaying(true)} />
               <Button
                 text={
                   playList.length === selectedMusic.length
@@ -153,6 +173,7 @@ export default function MainPage() {
           icon={<HeartBox />}
         />
       </section>
+      {/* {isPlaying && <MusicPlayer />} */}
     </>
   );
 }

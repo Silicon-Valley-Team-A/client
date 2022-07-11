@@ -2,7 +2,6 @@ import $ from './style.module.scss';
 import { AllPlayList, PlayList } from '../../types/playlist';
 
 export default function PlayListComponents(playlist: AllPlayList) {
-  console.log(playlist.title);
   return (
     <section>
       <div className={$.playlist}>

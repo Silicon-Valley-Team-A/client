@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import $ from '../style.module.scss';
 
 export default function Signup() {
-  const [signupId, setSignupId] = useState('');
+  const [signupName, setSignupName] = useState('');
+  const [signupEmail, setSignupEmail] = useState('');
   const [signupPw, setSignupPw] = useState('');
   const [signupPwConfirm, setSignupPwConfirm] = useState('');
   const [mismatchError, setMismatchError] = useState(false);
 
-  const handleInputId = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSignupId(e.target.value);
+  const handleInputName = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setSignupName(e.target.value);
+  };
+  const handleInputEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setSignupEmail(e.target.value);
   };
   const handleInputPw = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSignupPw(e.target.value);
@@ -24,10 +28,12 @@ export default function Signup() {
   ): void => {
     e.preventDefault();
     console.log(mismatchError);
-    if (signupId === '') {
-      alert('아이디를 입력해주세요');
+    if (signupName === '') {
+      alert('이름을 입력해 주세요');
+    } else if (signupEmail === '') {
+      alert('아이디를 입력해 주세요');
     } else if (signupPw === '') {
-      alert('비밀번호를 입력해주세요');
+      alert('비밀번호를 입력해 주세요');
     } else if (signupPw !== signupPwConfirm) {
       alert('비밀번호가 일치하지 않습니다.');
     } else {
@@ -40,10 +46,17 @@ export default function Signup() {
       <header>sign up</header>
       <input
         type="text"
-        name="id"
-        value={signupId}
-        placeholder="ID"
-        onChange={handleInputId}
+        name="name"
+        value={signupName}
+        placeholder="NAME"
+        onChange={handleInputName}
+      />
+      <input
+        type="text"
+        name="email"
+        value={signupEmail}
+        placeholder="EMAIL"
+        onChange={handleInputEmail}
       />
       <input
         type="password"

@@ -3,12 +3,11 @@ import $ from '../style.module.scss';
 import { Link } from 'react-router-dom';
 
 export default function Signin() {
-  const [signinId, setSigninId] = useState('');
+  const [signinEmail, setSigninEmail] = useState('');
   const [signinPw, setSigninPw] = useState('');
 
-  const handleInputId = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSigninId(e.target.value);
-    console.log(signinId);
+  const handleInputEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setSigninEmail(e.target.value);
   };
 
   const handleInputPw = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -27,10 +26,10 @@ export default function Signin() {
         <header>sign in</header>
         <input
           type="text"
-          name="id"
-          value={signinId}
-          placeholder="ID"
-          onChange={handleInputId}
+          name="email"
+          value={signinEmail}
+          placeholder="EMAIL"
+          onChange={handleInputEmail}
         />
         <input
           type="password"

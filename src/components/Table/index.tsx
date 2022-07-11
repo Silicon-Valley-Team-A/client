@@ -45,19 +45,25 @@ export default function Table() {
                 {row.cells.map((cell: any) => {
                   if (cell.column.id === 'image') {
                     return (
-                      <td className={$['cell-img']} key={Math.random()}>
+                      <td
+                        className={$['cell-img']}
+                        key={cell.column.id + cell.value}
+                      >
                         <img src={cell.value} />
                       </td>
                     );
                   } else if (cell.column.id === 'play') {
                     return (
-                      <td key={Math.random()}>
+                      <td key={cell.column.id + cell.value}>
                         <IoIosPlay size={32} className={$['play-icon']} />
                       </td>
                     );
                   } else {
                     return (
-                      <td {...cell.getCellProps()} key={Math.random()}>
+                      <td
+                        {...cell.getCellProps()}
+                        key={cell.column.id + cell.value}
+                      >
                         {cell.render('Cell')}
                       </td>
                     );

@@ -31,13 +31,13 @@ export default function MyPlayList() {
         <div className={$['playlist-title']}>Name의 Playlists</div>
         <hr />
         <div className={$['playlist-container']}>
-          {allPlaylist.map((music: AllPlayList) => {
+          {allPlaylist.map((playlist: AllPlayList) => {
             return (
-              <Link to={'/myplaylist/' + music.id}>
+              <Link to={'/myplaylist/' + playlist.id} key={playlist.id}>
                 <PlayListComponents
-                  key={music.id}
-                  id={music.id}
-                  playlist={music.playlist}
+                  id={playlist.id}
+                  title={playlist.title}
+                  playlist={playlist.playlist}
                 />
               </Link>
             );

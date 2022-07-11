@@ -61,7 +61,7 @@ export default function LoadedPlayList({
         <TableBody className={$['play-list']}>
           {list.map((row, index) => (
             <TableRow
-              key={row.albumImage + index}
+              key={row.image_album + index}
               sx={{
                 backgroundColor: row.selected ? '#eaeaea' : 'white',
                 borderColor: row.selected ? 'white' : '#eaeaea',
@@ -73,14 +73,14 @@ export default function LoadedPlayList({
             >
               <TableCell component="th" scope="row" align="center">
                 <img
-                  src={row.albumImage}
+                  src={row.image_album}
                   alt="album image"
                   width={50}
                   height={50}
                 />
               </TableCell>
               <TableCell align="center">{row.title}</TableCell>
-              <TableCell align="center">{row.singer}</TableCell>
+              <TableCell align="center">{row.artist}</TableCell>
               <TableCell align="center">
                 <PlayArrowIcon sx={{ color: '#329dff' }} />
               </TableCell>

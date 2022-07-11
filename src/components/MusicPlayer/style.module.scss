@@ -1,16 +1,17 @@
 @import '../../styles/color.scss';
 
 .content {
-  width: 70%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   padding: 1rem;
   color: $gray-2;
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
   background-color: $gray-3;
   > * {
-    padding: 1rem 0;
+    padding: 15px 0;
     color: $primary-2;
   }
   .player-container {
@@ -21,14 +22,14 @@
       .title {
         font-weight: 400;
       }
-      .singer {
+      .artist {
         font-weight: 300;
+        font-size: 14px;
       }
     }
   }
 
   .controls {
-    font-size: inherit;
     display: flex;
     align-items: center;
     margin-right: 10px;
@@ -55,11 +56,12 @@
       border-radius: 30px;
       cursor: pointer;
 
-      .seek_bar {
+      .progress_bar {
         width: 0;
         height: 100%;
         background-color: $primary-2;
         border-radius: 30px;
+        transition: width 0.1s linear;
       }
     }
   }

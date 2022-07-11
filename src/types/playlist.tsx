@@ -1,9 +1,10 @@
 export type PlayList = {
   id: number;
   title: string;
-  singer: string;
+  artist: string;
   imgurl: string;
 };
+
 export type AllPlayList = {
   playlist_title: string;
   id: number;
@@ -12,26 +13,14 @@ export type AllPlayList = {
 };
 
 export type Song = {
+  id: string;
   title: string;
-  singer: string;
-  url: string;
-  progress: number;
+  artist: string;
+  duration: number;
+  file: string;
+  title_album: string;
+  image_album: string;
   length: number;
 };
-export type Songs = {
-  title: string;
-  singer: string;
-  url: string;
-  progress: number;
-  length: number;
-}[];
 
-export type setCurrentSong = React.Dispatch<
-  React.SetStateAction<{
-    title: string;
-    singer: string;
-    url: string;
-    progress: number;
-    length: number;
-  }>
->;
+export type setCurrentSong = React.Dispatch<React.SetStateAction<Song>>;

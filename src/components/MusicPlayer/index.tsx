@@ -12,7 +12,7 @@ interface Props {
   songs: Songs;
   isPlaying: boolean;
   setisplaying: React.Dispatch<React.SetStateAction<boolean>>;
-  audioElem: any;
+  audioElem: React.RefObject<HTMLAudioElement>;
   currentSong: Song;
   setCurrentSong: setCurrentSong;
 }
@@ -27,30 +27,34 @@ export default function MusicPlayer({
 }: Props) {
   const clickRef = useRef<HTMLDivElement>(null);
 
-  const checkWidth = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (clickRef.current) {
-      if (clickRef.current.clientHeight) {
-        const width = clickRef.current.clientWidth;
-        const offset = e.nativeEvent.offsetX;
+  const adjustProgress = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (clickRef.current?.clientHeight) {
+      const width = clickRef.current.clientWidth;
+      const offset = e.nativeEvent.offsetX;
 
-        const divprogress = (offset / width) * 100;
+      const divprogress = (offset / width) * 100;
+      if (audioElem.current !== null) {
         audioElem.current.currentTime =
           (divprogress / 100) * currentSong.length;
       }
     }
   };
   const PlayPause = () => {
-    setisplaying(!isPlaying);
+    if (setisplaying !== null) {
+      setisplaying(!isPlaying);
+    }
   };
 
   const skipBack = () => {
-    const index = songs.findIndex(x => x.title == currentSong.title);
+    const index = songs.findIndex(x => x.title === currentSong.title);
     if (index == 0) {
       setCurrentSong(songs[songs.length - 1]);
     } else {
       setCurrentSong(songs[index - 1]);
     }
-    audioElem.current.currentTime = 0;
+    if (audioElem.current !== null) {
+      audioElem.current.currentTime = 0;
+    }
   };
 
   const skiptoNext = () => {
@@ -61,7 +65,9 @@ export default function MusicPlayer({
     } else {
       setCurrentSong(songs[index + 1]);
     }
-    audioElem.current.currentTime = 0;
+    if (audioElem.current !== null) {
+      audioElem.current.currentTime = 0;
+    }
   };
 
   return (
@@ -69,10 +75,10 @@ export default function MusicPlayer({
       <div className={$['player-container']}>
         <section className={$['song-info']}>
           <div className={$['title']}>
-            <p>{currentSong.title}</p>
+            <span>{currentSong.title}</span>
           </div>
           <div className={$['singer']}>
-            <p>{currentSong.singer}</p>
+            <span>{currentSong.singer}</span>
           </div>
         </section>
         <div className={$['controls']}>
@@ -95,7 +101,7 @@ export default function MusicPlayer({
         <div
           className={$['navigation_wrapper']}
           ref={clickRef}
-          onClick={checkWidth}
+          onClick={adjustProgress}
         >
           <div
             className={$['seek_bar']}

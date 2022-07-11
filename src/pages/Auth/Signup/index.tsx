@@ -27,10 +27,9 @@ export default function Signup() {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
     e.preventDefault();
-    console.log(mismatchError);
     if (signupName === '') {
       alert('이름을 입력해 주세요');
-    } else if (signupEmail === '') {
+    } else if (!signupEmail) {
       alert('아이디를 입력해 주세요');
     } else if (signupPw === '') {
       alert('비밀번호를 입력해 주세요');

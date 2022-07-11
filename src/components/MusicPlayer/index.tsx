@@ -27,7 +27,7 @@ export default function MusicPlayer({
 }: Props) {
   const clickRef = useRef<HTMLDivElement>(null);
 
-  const checkWidth = (e: any) => {
+  const checkWidth = (e: React.MouseEvent<HTMLDivElement>) => {
     if (clickRef.current) {
       if (clickRef.current.clientHeight) {
         const width = clickRef.current.clientWidth;

@@ -1,15 +1,25 @@
-exports.songsdata = [
+export const songsdata = [
   {
-    title: 'Drake - Forever',
+    title: 'Forever',
+    singer: 'Drake',
     url: 'https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse',
+    progress: 0,
+    length: 0,
   },
   {
-    title: 'Linking Park - In the end',
+    title: 'In the end',
+    singer: 'Linking Park',
     url: 'https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse',
+    progress: 0,
+    length: 0,
   },
   {
-    title: 'Travis Scott - Stop trina be God',
+    title: 'Stop trina be God',
+    singer: 'Travis Scott',
     url: 'https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse',
+
+    progress: 0,
+    length: 0,
   },
 ];
 

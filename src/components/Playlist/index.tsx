@@ -7,7 +7,7 @@ export default function PlayListComponents(playlist: AllPlayList) {
       <div className={$.playlist}>
         {playlist.playlist.map((music: PlayList) => {
           return (
-            <div className={$['playlist-thumbnail']}>
+            <div className={$['playlist-thumbnail']} key={music.id}>
               <img src={music.imgurl} />
             </div>
           );

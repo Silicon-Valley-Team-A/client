@@ -24,9 +24,14 @@ export default function Table() {
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup: any) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              key={headerGroup.headers}
+            >
               {headerGroup.headers.map((column: any) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps()} key={column.Header}>
+                  {column.render('Header')}
+                </th>
               ))}
             </tr>
           ))}
@@ -36,23 +41,31 @@ export default function Table() {
           {page.map((row: any) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} key={row.id}>
                 {row.cells.map((cell: any) => {
                   if (cell.column.id === 'image') {
                     return (
-                      <td className={$['cell-img']} key={cell.row.id}>
+                      <td
+                        className={$['cell-img']}
+                        key={cell.column.id + cell.value}
+                      >
                         <img src={cell.value} />
                       </td>
                     );
                   } else if (cell.column.id === 'play') {
                     return (
-                      <td key={cell.row.id}>
+                      <td key={cell.column.id + cell.value}>
                         <IoIosPlay size={32} className={$['play-icon']} />
                       </td>
                     );
                   } else {
                     return (
-                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                      <td
+                        {...cell.getCellProps()}
+                        key={cell.column.id + cell.value}
+                      >
+                        {cell.render('Cell')}
+                      </td>
                     );
                   }
                 })}

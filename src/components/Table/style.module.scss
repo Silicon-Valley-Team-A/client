@@ -2,6 +2,12 @@
 
 .table {
   margin: 20px 0;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   table {
     border-collapse: collapse;
     width: 100%;
@@ -36,10 +42,6 @@
     .play-icon {
       color: $primary-2;
     }
-  }
-
-  table tr:nth-child(even) {
-    background-color: $gray-4;
   }
   table tr:hover {
     background-color: $gray-2;

@@ -5,3 +5,8 @@ export type MusicInfo = {
   singer: string;
   selected: boolean;
 };
+
+export type ImageGenre = {
+  image: File;
+  genre: string;
+};

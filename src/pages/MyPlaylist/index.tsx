@@ -33,12 +33,18 @@ export default function MyPlayList() {
         <div className={$['playlist-container']}>
           {allPlaylist.map((playlist: AllPlayList) => {
             return (
-              <Link to={'/myplaylist/' + playlist.id} key={playlist.id}>
-                <PlayListComponents
-                  id={playlist.id}
-                  title={playlist.title}
-                  playlist={playlist.playlist}
-                />
+              <Link
+                to={'/myplaylist/' + music.id}
+                key={playlist.id}
+              >
+                <div className={$['playlist-center']}>
+                  <PlayListComponents
+                    key={music.id}
+                    id={music.id}
+                    playlist={music.playlist}
+                    playlist_title={music.playlist_title}
+                  />
+                </div>
               </Link>
             );
           })}

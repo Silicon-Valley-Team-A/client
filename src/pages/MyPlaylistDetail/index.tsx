@@ -40,7 +40,7 @@ export default function MyPlayListDetail() {
       <div className={$.container}>
         <section>
           <div className={$['playlist-header']}>
-            <h2 className={$['playlist-title']}>Playlist 1</h2>
+            <h2 className={$['playlist-title']}>playlist 1</h2>
             <div className={$['hashtag']}>
               <div className={$['playlist-hashtag']}>
                 <HashTag word="구름" />

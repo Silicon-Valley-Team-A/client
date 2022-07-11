@@ -1,6 +1,7 @@
 import $ from './style.module.scss';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const Input = styled('input')({
   display: 'none',
@@ -9,21 +10,84 @@ const Input = styled('input')({
 interface Props {
   imageUrl?: string;
   setSelectedImage: React.Dispatch<React.SetStateAction<File | undefined>>;
+  setImageUrl: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedGenre: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function ImageUpload({ imageUrl, setSelectedImage }: Props) {
+export default function ImageUpload({
+  imageUrl,
+  setSelectedImage,
+  setImageUrl,
+  setSelectedGenre,
+}: Props) {
+  const [isDragging, setIsDragging] = useState(false);
+  const dragRef = useRef<HTMLDivElement | null>(null);
+
   const selectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const images = e.target.files;
-    if (!images) return;
-
-    if (images[0]) {
+    if (images?.[0]) {
       setSelectedImage(images[0]);
     }
   };
 
+  const eventPrevent = (e: DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDragOut = useCallback((e: DragEvent): void => {
+    eventPrevent(e);
+    setIsDragging(false);
+  }, []);
+
+  const handleDragOver = useCallback((e: DragEvent): void => {
+    eventPrevent(e);
+    if (e.dataTransfer?.files) {
+      setIsDragging(true);
+    }
+  }, []);
+
+  const handleDrop = useCallback((e: DragEvent): void => {
+    eventPrevent(e);
+
+    if (e.type === 'drop') {
+      setImageUrl('');
+      setSelectedGenre('');
+      setSelectedImage(e.dataTransfer?.files[0]);
+    }
+    setIsDragging(false);
+  }, []);
+
+  // 3개의 이벤트 Listener 등록 (마운트 될때)
+  const initDragEvents = useCallback(() => {
+    if (dragRef.current !== null) {
+      dragRef.current.addEventListener('dragleave', handleDragOut);
+      dragRef.current.addEventListener('dragover', handleDragOver);
+      dragRef.current.addEventListener('drop', handleDrop);
+    }
+  }, [handleDragOut, handleDragOver, handleDrop]);
+
+  // 3개의 이벤트 Listener 삭제 (언마운트 될때)
+  const resetDragEvents = useCallback(() => {
+    if (dragRef.current !== null) {
+      dragRef.current.removeEventListener('dragleave', handleDragOut);
+      dragRef.current.removeEventListener('dragover', handleDragOver);
+      dragRef.current.removeEventListener('drop', handleDrop);
+    }
+  }, [handleDragOut, handleDragOver, handleDrop]);
+
+  useEffect(() => {
+    initDragEvents();
+
+    return () => resetDragEvents();
+  }, [initDragEvents, resetDragEvents]);
+
   return (
     <div className={$['image-box']}>
-      <div className={$['sub-box']}>
+      <div
+        className={$[isDragging ? 'sub-box-dragging' : 'sub-box']}
+        ref={dragRef}
+      >
         <article>
           {!imageUrl ? (
             <>

@@ -1,4 +1,5 @@
 @import '../MyPlaylist/style.module.scss';
+@import '../MyPlaylist/style.module.scss';
 
 .container_detail {
   align-items: center;
@@ -7,6 +8,10 @@
   display: flex;
   flex-direction: column;
 
+  section {
+    margin: 6% 0;
+    padding-bottom: 2%;
+  }
   .playlist-header {
     display: flex;
     align-items: center;

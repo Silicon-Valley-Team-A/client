@@ -1,5 +1,43 @@
 @import 'src/styles/color.scss';
 
+@mixin ImageBox() {
+  border: 2px dashed $gray-2;
+  border-radius: 8px;
+  width: 100%;
+  height: 400px;
+  pointer-events: auto;
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 10px;
+    text-align: center;
+
+    strong {
+      font-weight: 400;
+      font-size: 25px;
+      margin: 0 8px;
+    }
+    span {
+      font-size: 15px;
+    }
+    label {
+      .image-upload-btn {
+        background-color: $primary-2;
+        color: $white;
+        border-radius: 20px;
+        margin-top: 40px;
+      }
+    }
+    img {
+      width: 90%;
+      height: 100%;
+    }
+  }
+}
+
 .image-box {
   display: flex;
   flex-direction: column;
@@ -14,41 +52,11 @@
   padding: 20px;
 
   .sub-box {
-    border: 2px dashed $gray-2;
-    border-radius: 8px;
-    width: 100%;
-    height: 400px;
-    pointer-events: auto;
+    @include ImageBox();
 
-    article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      padding: 0 10px;
-      text-align: center;
-
-      strong {
-        font-weight: 400;
-        font-size: 25px;
-        margin: 0 8px;
-      }
-      span {
-        font-size: 15px;
-      }
-      label {
-        .image-upload-btn {
-          background-color: $primary-2;
-          color: $white;
-          border-radius: 20px;
-          margin-top: 40px;
-        }
-      }
-      img {
-        width: 90%;
-        height: 100%;
-      }
+    &-dragging {
+      @include ImageBox();
+      border: 2px dashed $primary-1;
     }
   }
 }

@@ -13,7 +13,7 @@ export default function PlayListComponents(playlist: AllPlayList) {
           );
         })}
       </div>
-      <div className={$['playlist-name']}>{playlist.title}</div>
+      <div className={$['playlist-name']}>{playlist.playlist_title}</div>
     </section>
   );
 }

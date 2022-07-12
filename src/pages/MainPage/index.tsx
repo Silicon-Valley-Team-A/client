@@ -3,7 +3,7 @@ import ImageUpload from '../../components/ImageUpload';
 import TextBox from '../../components/TextBox';
 import { firstText, secondText } from '../../__mocks/maintext';
 import { HeartBox, MusicFolder } from '../../Icon';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import LoadedPlayList from '../../components/LoadedPlayList';
 import { LoadPlayList } from '../../api/LoadPlayList';
 import Button from '../../components/Button';
@@ -16,7 +16,7 @@ import { matchGenreToEng } from '../../utils/matchGenreToEng';
 import { useAppDispatch } from '../../store';
 import { setSongList } from '../../store/features/audioSlice';
 
-export default function MainPage() {
+function MainPage() {
   const dispatch = useAppDispatch();
   const [selectedImage, setSelectedImage] = useState<File>(); // 전송할 파일
   const [selectedGenre, setSelectedGenre] = useState('');
@@ -63,7 +63,6 @@ export default function MainPage() {
   const saveToPlayList = (name: string) => {
     if (selectedMusic.length) {
       // fetch
-      console.log(name);
       setShowInputModal(false);
       setShowPopup(true);
 
@@ -167,3 +166,5 @@ export default function MainPage() {
     </>
   );
 }
+
+export default memo(MainPage);

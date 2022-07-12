@@ -1,0 +1,18 @@
+@import 'src/styles/color.scss';
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+
+  .btn_action {
+    font-size: 2rem;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    color: $white;
+
+    &:hover {
+      color: $primary-2;
+    }
+  }
+}

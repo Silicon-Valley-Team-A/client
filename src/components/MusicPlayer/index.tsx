@@ -1,11 +1,5 @@
 import $ from './style.module.scss';
-import { useRef } from 'react';
-import {
-  BsFillPlayCircleFill,
-  BsFillPauseCircleFill,
-  BsFillSkipStartFill,
-  BsFillSkipEndFill,
-} from 'react-icons/bs';
+import { useCallback, useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store';
 import {
   toggleAudio,
@@ -13,80 +7,88 @@ import {
   skipNextSong,
   adjustSongTime,
 } from '../../store/features/audioSlice';
+import Controls from './Controls';
+import CdPlayer from '../../Icon/CdPlayer';
 
-interface Props {
-  isPause: boolean;
-}
-
-export default function MusicPlayer({ isPause }: Props) {
-  const clickRef = useRef<HTMLDivElement>(null);
-  const { playList, currentSongIdx, progress } = useAppSelector(
+export default function MusicPlayer() {
+  const { isPause, playList, currentSongIdx, progress } = useAppSelector(
     state => state.audios,
   );
   const dispatch = useAppDispatch();
 
-  const { title, artist, file, duration, length } = playList[currentSongIdx];
-  const audioElement = useRef<HTMLAudioElement>(null);
+  const { title, artist, file, image_album, duration } =
+    playList[currentSongIdx];
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const clickRef = useRef<HTMLDivElement>(null);
+
+  const updateProgress = useCallback(() => {
+    if (audioRef.current && duration) {
+      const currentTime = audioRef.current.currentTime;
+
+      if (currentTime >= duration) {
+        dispatch(skipNextSong());
+        audioRef.current.currentTime = 0;
+        return;
+      }
+      dispatch(adjustSongTime((currentTime / duration) * 100));
+    }
+  }, []);
 
   const adjustProgress = (e: React.MouseEvent<HTMLDivElement>) => {
-    // if (clickRef.current?.clientHeight) {
-    //   const width = clickRef.current?.clientWidth;
-    //   const offset = e.nativeEvent.offsetX;
-    //   const divprogress = (offset / width) * 100;
-    //   if (audioElem.current !== null) {
-    //     audioElem.current.currentTime =
-    //       (divprogress / 100) * currentSong.length;
-    //   }
-    // }
-
-    if (clickRef.current?.clientHeight) {
+    if (clickRef.current && audioRef.current) {
       const clientWidth = clickRef.current?.clientWidth;
       const offsetX = e.nativeEvent.offsetX;
       const divprogress = (offsetX / clientWidth) * 100;
+      const newTime = (divprogress / 100) * 100;
 
-      if (audioElement.current !== null) {
-        audioElement.current.currentTime = (divprogress / 100) * length;
-
-        const currentTime = audioElement.current.currentTime;
-        dispatch(adjustSongTime((currentTime / duration) * 100));
-      }
+      audioRef.current.currentTime = newTime;
+      dispatch(adjustSongTime(newTime));
     }
   };
+
+  const initialTime = () => {
+    if (audioRef.current) audioRef.current.currentTime = 0;
+  };
+
+  const togglePlayBtn = useCallback(() => {
+    isPause ? audioRef.current?.play() : audioRef.current?.pause();
+    dispatch(toggleAudio());
+  }, []);
+
+  const skipToPrevSong = useCallback(() => {
+    dispatch(skipPrevSong());
+    initialTime();
+  }, []);
+
+  const skipToNextSong = useCallback(() => {
+    dispatch(skipNextSong());
+    initialTime();
+  }, []);
+
+  useEffect(() => {
+    !isPause ? audioRef.current?.play() : audioRef.current?.pause();
+  }, [isPause]);
 
   return (
     <div className={$.content}>
       <div className={$['player-container']}>
         <section className={$['song-info']}>
-          <div className={$['title']}>
-            <span>{title}</span>
-          </div>
-          <div className={$['artist']}>
-            <span>{artist}</span>
+          <CdPlayer src={image_album} alt={`${title}의 앨범 커버`} />
+          <div className={$['info']}>
+            <span className={$['title']}>{title}</span>
+            <span className={$['artist']}>{artist}</span>
           </div>
         </section>
-        <div className={$['controls']}>
-          <BsFillSkipStartFill
-            className={$['btn_action']}
-            onClick={() => dispatch(skipPrevSong())}
-          />
-          {isPause ? (
-            <BsFillPauseCircleFill
-              className={$['btn_action']}
-              onClick={() => dispatch(toggleAudio())}
-            />
-          ) : (
-            <BsFillPlayCircleFill
-              className={$['btn_action']}
-              onClick={toggleAudio}
-            />
-          )}
-          <BsFillSkipEndFill
-            className={$['btn_action']}
-            onClick={() => dispatch(skipNextSong())}
-          />
-        </div>
-        <audio ref={audioElement} src={file} />
+        <Controls
+          {...{ isPause, skipToPrevSong, togglePlayBtn, skipToNextSong }}
+        />
+        <audio
+          ref={audioRef}
+          src={file}
+          onTimeUpdate={() => !isPause && updateProgress()}
+        />
       </div>
+
       <div className={$['navigation']}>
         <div
           className={$['navigation_wrapper']}
@@ -95,7 +97,7 @@ export default function MusicPlayer({ isPause }: Props) {
         >
           <div
             className={$['progress_bar']}
-            style={{ width: `${progress + '%'}` }}
+            style={{ width: duration && `${(progress / duration) * 100}%` }}
           ></div>
         </div>
       </div>

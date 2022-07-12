@@ -20,7 +20,6 @@ export type Song = {
   file: string;
   title_album: string;
   image_album: string;
-  length: number;
 };
 
 export type setCurrentSong = React.Dispatch<React.SetStateAction<Song>>;

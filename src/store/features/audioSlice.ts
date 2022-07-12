@@ -19,11 +19,10 @@ const initialState: AudioState = {
     id: '',
     title: '',
     artist: '',
-    duration: 1,
+    duration: 60,
     file: '',
     title_album: '',
     image_album: '',
-    length: 0,
   },
   currentSongIdx: 0,
   progress: 0,
@@ -36,24 +35,26 @@ export const audioSlice = createSlice({
   reducers: {
     setSongList: (state, action: PayloadAction<Song[]>) => {
       state.playList = action.payload;
-      console.log(action.payload);
       state.isAudioPlaying = true;
+      state.isPause = false;
+      state.progress = 0;
     },
     toggleAudio: state => {
-      console.log('toggle');
       state.isPause = !state.isPause;
     },
     skipPrevSong: state => {
-      console.log('PrevSong');
-      if (state.currentSongIdx > 0) state.currentSongIdx -= 1;
+      if (state.currentSongIdx > 0) {
+        state.currentSongIdx -= 1;
+        state.progress = 0;
+      }
     },
     skipNextSong: state => {
-      console.log('NextSong');
-      if (state.currentSongIdx < state.playList.length - 1)
+      if (state.currentSongIdx < state.playList.length - 1) {
         state.currentSongIdx += 1;
+        state.progress = 0;
+      }
     },
     adjustSongTime: (state, action: PayloadAction<number>) => {
-      console.log('adjustProgress');
       state.progress = action.payload;
     },
   },

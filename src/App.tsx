@@ -10,7 +10,7 @@ import { useAppSelector } from './store';
 import MusicPlayer from './components/MusicPlayer';
 
 function App() {
-  const { isAudioPlaying, isPause } = useAppSelector(state => state.audios);
+  const { isAudioPlaying } = useAppSelector(state => state.audios);
 
   return (
     <BrowserRouter>
@@ -24,7 +24,7 @@ function App() {
           <Route path="/myplaylist/:id" element={<MyPlayListDetail />} />
         </Routes>
       </div>
-      {isAudioPlaying && <MusicPlayer isPause={isPause} />}
+      {isAudioPlaying && <MusicPlayer />}
     </BrowserRouter>
   );
 }

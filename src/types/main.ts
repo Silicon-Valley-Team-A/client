@@ -1,22 +1,19 @@
-export interface MusicInfo {
-  id: string;
-  title: string;
-  artist: string;
-  duration: number;
-  file: string;
-  title_album: string;
-  image_album: string;
+import { Song } from './playlist';
+
+export type MusicInfo = Song & {
   selected: boolean;
-}
+};
 
 export type ImageGenre = {
   image: File;
   genre: string;
 };
 
+export type MusicList = Omit<MusicInfo, 'selected'>;
+
 export type PlayListInfo = {
   user_id: number;
   name: string;
   tag: string;
-  songs: Omit<MusicInfo, 'selected'>[];
+  songs: MusicList[];
 };

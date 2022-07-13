@@ -3,7 +3,7 @@ import ImageUpload from '../../components/ImageUpload';
 import TextBox from '../../components/TextBox';
 import { firstText, secondText } from '../../__mocks/maintext';
 import { HeartBox, MusicFolder } from '../../Icon';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import LoadedPlayList from '../../components/LoadedPlayList';
 import { LoadPlayList, SavePlayList } from '../../api/LoadPlayList';
 import Button from '../../components/Button';
@@ -13,9 +13,11 @@ import Modal from '../../components/Modal';
 import ModalBack from '../../components/Modal/ModalBack';
 import GenreModal from '../../components/GenreModal';
 import { matchGenreToEng } from '../../utils/matchGenreToEng';
-import MusicPlayer from '../../components/MusicPlayer';
+import { useAppDispatch } from '../../store';
+import { setSongList } from '../../store/features/audioSlice';
 
-export default function MainPage() {
+function MainPage() {
+  const dispatch = useAppDispatch();
   const [selectedImage, setSelectedImage] = useState<File>(); // 전송할 파일
   const [selectedGenre, setSelectedGenre] = useState('');
   const [playList, setPlayList] = useState<MusicInfo[]>([]); // 총 플레이 리스트
@@ -96,6 +98,13 @@ export default function MainPage() {
     }
   };
 
+  const playAudio = () => {
+    const playList = selectedMusic.map(({ selected, ...remain }) => {
+      return { ...remain };
+    });
+    dispatch(setSongList(playList));
+  };
+
   return (
     <>
       <div className={$.content}>
@@ -142,7 +151,7 @@ export default function MainPage() {
                 text={'플레이 리스트 저장'}
                 onClick={() => selectedMusic.length && setShowInputModal(true)}
               />
-              <Button text={'선택 재생'} onClick={() => setIsPlaying(true)} />
+              <Button text={'선택 재생'} onClick={playAudio} />
               <Button
                 text={
                   playList.length === selectedMusic.length
@@ -177,3 +186,5 @@ export default function MainPage() {
     </>
   );
 }
+
+export default memo(MainPage);

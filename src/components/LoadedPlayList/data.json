@@ -4,60 +4,67 @@
       "imageUrl": "https://blog.kakaocdn.net/dn/xxyIJ/btq92x3CGjB/Yc203QOlRmjDO2rjKC4TDK/img.jpg"
     },
     {
-      "id": "1",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
+      "id": 1,
       "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/108/42/611/10842611_20220117110002_500.jpg?943fdb8574f4aacd81b42d9668cdf52a/melon/resize/282/quality/80/optimize",
       "title": "SMILEY",
       "artist": "YENA",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     },
     {
-      "id": "2",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
+      "id": 2,
       "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/108/90/384/10890384_20220314111504_500.jpg?4b9dba7aeba43a4e0042eedb6b9865c1",
       "title": "TOMBOY",
       "artist": "I-DLE",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     },
     {
-      "id": "3",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
+      "id": 3,
       "image_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
       "title": "That That",
       "artist": "PSY",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     },
     {
-      "id": "4",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
+      "id": 4,
       "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/246/10554246_20210325161233_500.jpg?304eb9ed9c07a16ec6d6e000dc0e7d91/melon/resize/282/quality/80/optimize",
       "title": "LALAC",
       "artist": "IU",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://jennicorbus.com/audio/tagged.mp3"
     },
     {
-      "id": "5",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
+      "id": 5,
       "image_album": "https://preview.redd.it/zwm51zd8wcp31.jpg?auto=webp&s=c96b757ff997395507ec4651dbff4d51c4c9fc3c",
       "title": "Lover",
       "artist": "Taylor Swift",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://jennicorbus.com/audio/nemo.mp3"
     },
     {
-      "id": "6",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
+      "id": 6,
       "image_album": "http://img.etoday.co.kr/pto_db/2021/05/700/20210517101108_1621131_1000_998.jpg",
       "title": "HAPPEN",
       "artist": "헤이즈",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://jennicorbus.com/audio/select.wav"
     },
     {
-      "id": "7",
-      "title_album": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMBn9EbJV7_NBzN6llIWTWRPbmyDEcM3P6g&usqp=CAU",
-      "image_album": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa32cd120337375.60af900aee888.jpg",
+      "id": 7,
+      "image_album": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa32cd120337375.100af900aee888.jpg",
       "title": "Wave",
       "artist": "하이라이트",
-      "duration": 1
+      "title_album": "",
+      "duration": 100,
+      "file": "https://jennicorbus.com/audio/mouse-click.mp3"
     }
   ]
 }

@@ -1,0 +1,36 @@
+@import '/src/styles/color.scss';
+
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding: 20px;
+  margin-top: 100px;
+  background-color: $gray-4;
+  .f-inner {
+    .info {
+      display: flex;
+      flex-direction: column;
+      .f-menu {
+        display: flex;
+        cursor: pointer;
+        li {
+          margin: 10px;
+          font-weight: 400;
+        }
+      }
+      .more {
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;
+        cursor: pointer;
+        .team {
+          color: orange;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

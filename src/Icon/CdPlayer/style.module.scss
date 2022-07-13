@@ -1,0 +1,47 @@
+@import 'src/styles/color.scss';
+
+@mixin common-img {
+  width: fit-content;
+  height: 100%;
+}
+
+.player-album {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border-radius: 50%;
+  }
+
+  .album-img {
+    @include common-img;
+    animation: spin 3s linear infinite;
+    &-acive {
+      @include common-img;
+      animation-name: none;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

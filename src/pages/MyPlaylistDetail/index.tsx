@@ -52,15 +52,15 @@ export default function MyPlayListDetail() {
           <Table />
         </section>
       </div>
-      <audio ref={audioElem} src={currentSong.url} onTimeUpdate={onPlaying} />
-      <MusicPlayer
+      {/* <audio ref={audioElem} src={currentSong.file} onTimeUpdate={onPlaying} /> */}
+      {/* <MusicPlayer
         songs={songs}
-        isPlaying={isPlaying}
+        isPause={isPlaying}
         setisplaying={setisPlaying}
         audioElem={audioElem}
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
-      />
+      /> */}
     </div>
   );
 }

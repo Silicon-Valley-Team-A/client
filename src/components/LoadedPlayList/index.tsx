@@ -4,8 +4,9 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { MusicInfo } from '../../types/main';
+import { useCallback } from 'react';
+import Song from './song';
 
 interface Props {
   list: MusicInfo[];
@@ -18,7 +19,7 @@ export default function LoadedPlayList({
   setPlayList,
   setSelectedMusic,
 }: Props) {
-  const selectMusic = (info: MusicInfo) => {
+  const selectMusic = useCallback((info: MusicInfo) => {
     const selectedId = info.id;
 
     setSelectedMusic(prevMusic => {
@@ -36,7 +37,7 @@ export default function LoadedPlayList({
           : element,
       ),
     );
-  };
+  }, []);
 
   return (
     <div className={$['list-box']}>
@@ -60,31 +61,12 @@ export default function LoadedPlayList({
         </TableHead>
         <TableBody className={$['play-list']}>
           {list.map((row, index) => (
-            <TableRow
-              key={row.albumImage + index}
-              sx={{
-                backgroundColor: row.selected ? '#eaeaea' : 'white',
-                borderColor: row.selected ? 'white' : '#eaeaea',
-                '&:last-child td, &:last-child th': {
-                  border: 0,
-                },
-              }}
-              onClick={() => selectMusic(row)}
-            >
-              <TableCell component="th" scope="row" align="center">
-                <img
-                  src={row.albumImage}
-                  alt="album image"
-                  width={50}
-                  height={50}
-                />
-              </TableCell>
-              <TableCell align="center">{row.title}</TableCell>
-              <TableCell align="center">{row.singer}</TableCell>
-              <TableCell align="center">
-                <PlayArrowIcon sx={{ color: '#329dff' }} />
-              </TableCell>
-            </TableRow>
+            <Song
+              key={`${row.id}${index}`}
+              row={row}
+              index={index}
+              selectMusic={selectMusic}
+            />
           ))}
         </TableBody>
       </Table>

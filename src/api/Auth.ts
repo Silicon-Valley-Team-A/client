@@ -3,9 +3,7 @@ import { SignupUser, User } from '../types/auth';
 
 export const AuthenticateUser = async (user: User) => {
   try {
-    console.log(user);
     const res = await AuthServices.postSignin(user);
-    console.log(res.data);
     return Promise.resolve(res.data);
   } catch (err) {
     return Promise.reject(err);
@@ -23,6 +21,8 @@ export const AuthenticateSuccess = async () => {
 
 export const LogOut = async () => {
   try {
+    const res = await AuthServices.getLogout();
+    return Promise.resolve(res.data);
   } catch (err) {
     Promise.reject(err);
   }
@@ -30,7 +30,7 @@ export const LogOut = async () => {
 
 export const Register = async (SignupUser: SignupUser) => {
   try {
-    const res = await AuthServices.postSignin(SignupUser);
+    const res = await AuthServices.postSignUp(SignupUser);
     return Promise.resolve(res.data);
   } catch (err) {
     Promise.reject(err);

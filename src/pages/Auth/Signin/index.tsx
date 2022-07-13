@@ -3,8 +3,11 @@ import $ from '../style.module.scss';
 import { Link } from 'react-router-dom';
 import { AuthenticateUser } from '../../../api/Auth';
 import { User } from '../../../types/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signin() {
+  const navigate = useNavigate();
+
   const [signinEmail, setSigninEmail] = useState('');
   const [signinPw, setSigninPw] = useState('');
 
@@ -25,15 +28,16 @@ export default function Signin() {
     } else if (signinPw === '') {
       alert('비밀번호를 입력해 주세요');
     } else {
+      let sessionStorage = window.sessionStorage;
       const user: User = { email: signinEmail, password: signinPw };
-      console.log(user);
       AuthenticateUser(user)
         .then(res => {
           console.log(res);
           if (res.success) {
-            console.log('!!');
+            sessionStorage.setItem('name', signinEmail);
+            navigate('/');
           } else if (res.error) {
-            console.log('??');
+            alert('아이디 또는 비밀번호를 확인해주세요');
           }
         })
         .catch(error => {

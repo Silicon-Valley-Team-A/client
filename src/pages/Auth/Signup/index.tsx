@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const navigate = useNavigate();
-
   const [signupName, setSignupName] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPw, setSignupPw] = useState('');
@@ -35,7 +34,7 @@ export default function Signup() {
     if (signupName === '') {
       alert('이름을 입력해 주세요');
     } else if (signupEmail === '') {
-      alert('아이디를 입력해 주세요');
+      alert('이메일를 입력해 주세요');
     } else if (signupPw === '') {
       alert('비밀번호를 입력해 주세요');
     } else if (signupPw !== signupPwConfirm) {
@@ -46,7 +45,6 @@ export default function Signup() {
         email: signupEmail,
         password: signupPw,
       };
-      console.log(signupUser);
       Register(signupUser)
         .then(res => {
           if (res.result === 'User created successfully') {

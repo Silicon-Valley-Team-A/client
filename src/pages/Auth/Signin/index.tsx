@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import $ from '../style.module.scss';
 import { Link } from 'react-router-dom';
 import { AuthenticateUser } from '../../../api/Auth';
@@ -28,11 +28,9 @@ export default function Signin() {
     } else if (signinPw === '') {
       alert('비밀번호를 입력해 주세요');
     } else {
-      let sessionStorage = window.sessionStorage;
       const user: User = { email: signinEmail, password: signinPw };
       AuthenticateUser(user)
         .then(res => {
-          console.log(res);
           if (res.success) {
             sessionStorage.setItem('name', signinEmail);
             navigate('/');

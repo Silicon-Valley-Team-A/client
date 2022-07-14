@@ -10,15 +10,6 @@ export const AuthenticateUser = async (user: User) => {
   }
 };
 
-export const AuthenticateSuccess = async () => {
-  try {
-    const res = await AuthServices.getSignin();
-    return Promise.resolve();
-  } catch (err) {
-    return Promise.reject(err);
-  }
-};
-
 export const LogOut = async () => {
   try {
     const res = await AuthServices.postLogout();
@@ -36,4 +27,3 @@ export const Register = async (SignupUser: SignupUser) => {
     Promise.reject(err);
   }
 };
-export const isLogin = () => !!localStorage.getItem('userId');

@@ -1,8 +1,8 @@
 import $ from './style.module.scss';
-import { LogOut } from '../../../api/Auth';
-import Logo from '../../Logo';
+import Logo from '../Logo';
 import { Link, useNavigate } from 'react-router-dom';
-import { isLogin } from '../../../utils/isLogin';
+import { LogOut } from '../../api/Auth';
+import { isLogin } from '../../utils/isLogin';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function Header() {
   const onClickPlaylist = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
   ) => {
-    isLogin() ? navigate('/myplaylist') : navigate('/signin');
+    navigate(isLogin() ? '/myplaylist' : '/signin');
   };
 
   return (

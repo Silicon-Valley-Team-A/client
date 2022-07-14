@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { isLogin } from '../api/Auth';
+import { isLogin } from '../utils/isLogin';
 
 const AuthRoute = () => {
   return isLogin() ? <Outlet /> : <Navigate to="/signin" />;

@@ -3,7 +3,7 @@ import $ from './style.module.scss';
 import '.';
 import axios from 'axios';
 import PlayListComponents from '../../components/Playlist';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AllPlayList } from '../../types/playlist';
 
 export default function MyPlayList() {

@@ -7,6 +7,7 @@ import MyPlayListDetail from './pages/MyPlaylistDetail';
 import Signin from './pages/Auth/Signin';
 import Signup from './pages/Auth/Signup';
 import { isLogin } from './api/Auth';
+import AuthRoute from './route/AuthRoute';
 
 function App() {
   return (
@@ -17,14 +18,10 @@ function App() {
           <Route path="/*" element={<MainPage />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          {isLogin() ? (
-            <>
-              <Route path="/myplaylist" element={<MyPlayList />} />
-              <Route path="/myplaylist/:id" element={<MyPlayListDetail />} />
-            </>
-          ) : (
-            <></>
-          )}
+          <Route path="/myplaylist" element={<AuthRoute />}>
+            <Route path="/myplaylist" element={<MyPlayList />} />
+            <Route path="/myplaylist/:id" element={<MyPlayListDetail />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

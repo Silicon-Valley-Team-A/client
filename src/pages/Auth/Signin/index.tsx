@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import $ from '../style.module.scss';
 import { Link } from 'react-router-dom';
+import { AuthenticateUser } from '../../../api/Auth';
+import { User } from '../../../types/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signin() {
-  const [signinId, setSigninId] = useState('');
+  const navigate = useNavigate();
+
+  const [signinEmail, setSigninEmail] = useState('');
   const [signinPw, setSigninPw] = useState('');
 
-  const handleInputId = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSigninId(e.target.value);
-    console.log(signinId);
+  const handleInputEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setSigninEmail(e.target.value);
   };
 
   const handleInputPw = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -19,6 +23,26 @@ export default function Signin() {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
     e.preventDefault();
+    if (signinEmail === '') {
+      alert('아이디를 입력해 주세요');
+    } else if (signinPw === '') {
+      alert('비밀번호를 입력해 주세요');
+    } else {
+      const user: User = { email: signinEmail, password: signinPw };
+      AuthenticateUser(user)
+        .then(res => {
+          if (res.success) {
+            localStorage.setItem('userId', res.user_id);
+            navigate('/');
+          } else if (res.error) {
+            alert('아이디 또는 비밀번호를 확인해주세요');
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          alert('로그인에 실패하였습니다');
+        });
+    }
   };
 
   return (
@@ -27,10 +51,10 @@ export default function Signin() {
         <header>sign in</header>
         <input
           type="text"
-          name="id"
-          value={signinId}
-          placeholder="ID"
-          onChange={handleInputId}
+          name="email"
+          value={signinEmail}
+          placeholder="EMAIL"
+          onChange={handleInputEmail}
         />
         <input
           type="password"

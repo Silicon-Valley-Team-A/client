@@ -1,7 +1,7 @@
 import $ from './style.module.scss';
-import Logo from '../Logo';
+import { isLogin, LogOut } from '../../../api/Auth';
+import Logo from '../../Logo';
 import { Link, useNavigate } from 'react-router-dom';
-import { isLogin, LogOut } from '../../api/Auth';
 
 export default function Header() {
   const navigate = useNavigate();

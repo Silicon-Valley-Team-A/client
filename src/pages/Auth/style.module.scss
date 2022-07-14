@@ -8,12 +8,12 @@ $input-height: 30px;
 $button-height: 50px;
 
 .container {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-weight: 400;
-  width: $container-width;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% 0;
 
   header {
     text-align: center;

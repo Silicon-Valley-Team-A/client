@@ -2,10 +2,9 @@ import http from '../common/http';
 import { PlayListInfo, ImageGenre } from '../types/main';
 
 const getPlayList = (info: ImageGenre) =>
-  http.get(`http://localhost:4000/playList/`);
+  http.get(`music/${info.image}/${info.genre}`);
 
-const savePlayList = (list: PlayListInfo) =>
-  http.post(`http://localhost:4000/playList/save/` + list);
+const savePlayList = (list: PlayListInfo) => http.post(`playList/save/`, list);
 
 const MainServices = {
   getPlayList,

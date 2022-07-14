@@ -25,12 +25,14 @@ function MainPage() {
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
   const [showPopup, setShowPopup] = useState(false);
   const [showInputModal, setShowInputModal] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (selectedImage && selectedGenre) {
+      const formData = new FormData();
+      formData.append('upload_image', selectedImage);
+
       const imageGenre = {
-        image: selectedImage,
+        image: formData,
         genre: matchGenreToEng(selectedGenre),
       };
 
@@ -182,7 +184,6 @@ function MainPage() {
           icon={<HeartBox />}
         />
       </section>
-      {/* {isPlaying && <MusicPlayer />} */}
     </>
   );
 }

@@ -32,7 +32,7 @@ export default function Signin() {
       AuthenticateUser(user)
         .then(res => {
           if (res.success) {
-            sessionStorage.setItem('name', signinEmail);
+            localStorage.setItem('userId', res.user_id);
             navigate('/');
           } else if (res.error) {
             alert('아이디 또는 비밀번호를 확인해주세요');
@@ -40,7 +40,7 @@ export default function Signin() {
         })
         .catch(error => {
           console.log(error);
-          alert('아이디 또는 비밀번호를 확인해주세요');
+          alert('로그인에 실패하였습니다');
         });
     }
   };

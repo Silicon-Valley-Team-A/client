@@ -21,7 +21,8 @@ export const AuthenticateSuccess = async () => {
 
 export const LogOut = async () => {
   try {
-    const res = await AuthServices.getLogout();
+    const res = await AuthServices.postLogout();
+    console.log(res);
     return Promise.resolve(res.data);
   } catch (err) {
     Promise.reject(err);
@@ -36,3 +37,4 @@ export const Register = async (SignupUser: SignupUser) => {
     Promise.reject(err);
   }
 };
+export const isLogin = () => !!localStorage.getItem('userId');

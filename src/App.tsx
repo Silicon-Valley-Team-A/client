@@ -6,7 +6,6 @@ import MyPlayList from './pages/MyPlaylist';
 import MyPlayListDetail from './pages/MyPlaylistDetail';
 import Signin from './pages/Auth/Signin';
 import Signup from './pages/Auth/Signup';
-import { isLogin } from './api/Auth';
 import AuthRoute from './route/AuthRoute';
 
 function App() {

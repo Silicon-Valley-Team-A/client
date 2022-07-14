@@ -4,7 +4,7 @@ import { PlayListInfo, ImageGenre } from '../types/main';
 const getPlayList = (info: ImageGenre) =>
   http.get(`music/${info.image}/${info.genre}`);
 
-const savePlayList = (list: PlayListInfo) => http.post(`playList/save/`, list);
+const savePlayList = (list: PlayListInfo) => http.post(`save/`, list);
 
 const MainServices = {
   getPlayList,

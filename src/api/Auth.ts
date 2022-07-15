@@ -1,4 +1,4 @@
-import AuthServices from '../services/Auth/AuthServices';
+import AuthServices from '../services/AuthServices';
 import { SignupUser, User } from '../types/auth';
 
 export const AuthenticateUser = async (user: User) => {

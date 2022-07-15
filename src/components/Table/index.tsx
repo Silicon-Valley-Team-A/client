@@ -1,13 +1,20 @@
-import { useMemo } from 'react';
-import MOCK_DATA from './MOCK_DATA.json';
+import { useEffect, useMemo } from 'react';
 import { COLUMNS } from './columns';
 import { usePagination, useTable } from 'react-table';
 import $ from './style.module.scss';
 import { IoIosPlay } from 'react-icons/io';
+import { Song } from '../../types/playlist';
 
-export default function Table() {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+interface Props {
+  list: Song[];
+}
+
+export default function Table({ list }: Props) {
+  //렌더링 문제..
+  //const columns = useMemo(() => COLUMNS, []);
+  //const data = useMemo(() => list, []);
+  const columns = COLUMNS;
+  const data = list;
   const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow } =
     useTable(
       {
@@ -43,7 +50,8 @@ export default function Table() {
             return (
               <tr {...row.getRowProps()} key={row.id}>
                 {row.cells.map((cell: any) => {
-                  if (cell.column.id === 'image') {
+                  console.log(cell.render('Cell'));
+                  if (cell.column.id === 'image_album') {
                     return (
                       <td
                         className={$['cell-img']}

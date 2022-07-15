@@ -1,14 +1,15 @@
 import $ from './style.module.scss';
-import { AllPlayList, PlayList } from '../../types/playlist';
+import { AllPlayList, Song } from '../../types/playlist';
 
 export default function PlayListComponents(playlist: AllPlayList) {
   return (
     <section>
       <div className={$.playlist}>
-        {playlist.playlist.map((music: PlayList) => {
+        {playlist.playlist.map((music: Song) => {
+          console.log(music);
           return (
             <div className={$['playlist-thumbnail']} key={music.id}>
-              <img src={music.imgurl} />
+              <img src={music.image_album} />
             </div>
           );
         })}

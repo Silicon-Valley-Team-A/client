@@ -5,7 +5,7 @@ export const COLUMNS = [
   },
   {
     Header: '이미지',
-    accessor: 'image',
+    accessor: 'image_album',
   },
   {
     Header: '곡 제목',
@@ -17,7 +17,7 @@ export const COLUMNS = [
   },
   {
     Header: '앨범',
-    accessor: 'album',
+    accessor: 'title_album',
   },
   {
     Header: '재생',

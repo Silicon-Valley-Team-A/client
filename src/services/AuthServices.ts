@@ -1,5 +1,5 @@
-import http from '../../common/http';
-import { User, SignupUser } from '../../types/auth';
+import http from '../common/http';
+import { User, SignupUser } from '../types/auth';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 

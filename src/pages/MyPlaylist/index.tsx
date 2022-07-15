@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import $ from './style.module.scss';
-import '.';
-import axios from 'axios';
 import PlayListComponents from '../../components/Playlist';
 import { Link } from 'react-router-dom';
 import { AllPlayList } from '../../types/playlist';
+import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
 
 export default function MyPlayList() {
   const [allPlaylist, setAllPlaylist] = useState<AllPlayList[]>([]);
 
   const getPlayListData = () => {
-    axios
-      .get('http://localhost:8888/myplaylist')
+    LoadMyPlayList(1)
       .then(response => {
-        const responseAllPlaylist: AllPlayList[] = response.data;
+        const responseAllPlaylist: AllPlayList[] = response;
         setAllPlaylist(responseAllPlaylist);
       })
       .catch(error => {

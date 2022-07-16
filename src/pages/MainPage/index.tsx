@@ -83,7 +83,6 @@ function MainPage() {
     const playList = selectedMusic.map(({ selected, ...remain }) => {
       return { ...remain };
     });
-    console.log(playList);
     dispatch(setSongList(playList));
   };
 

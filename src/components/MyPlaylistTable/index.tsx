@@ -1,19 +1,19 @@
-import React from 'react';
+import $ from './style.module.scss';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Song } from '../../types/playlist';
-import PlayList from './PlayList';
 import { MusicInfo } from '../../types/main';
+import SongDetail from './song';
+
 interface Props {
   list: MusicInfo[];
 }
-export default function NewTable({ list }: Props) {
-  console.log(list);
+
+export default function MyPlaylistTable({ list }: Props) {
   return (
-    <div>
+    <div className={$.table}>
       <Table sx={{ width: '100%' }} size="small">
         <TableHead>
           <TableRow>
@@ -27,7 +27,7 @@ export default function NewTable({ list }: Props) {
         </TableHead>
         <TableBody>
           {list.map((row, index) => (
-            <PlayList key={`${row.id}${index}`} row={row} index={index} />
+            <SongDetail key={`${row.id}${index}`} row={row} index={index} />
           ))}
         </TableBody>
       </Table>

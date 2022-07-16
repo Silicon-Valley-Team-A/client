@@ -1,0 +1,15 @@
+@import 'src/styles/color.scss';
+
+.table {
+  background-color: $white;
+  max-height: 310px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 30px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .play-icon {
+    cursor: pointer;
+  }
+}

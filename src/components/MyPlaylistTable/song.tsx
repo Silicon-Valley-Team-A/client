@@ -1,9 +1,7 @@
-import React from 'react';
 import { TableCell, TableRow } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Song } from '../../types/playlist';
 import { setSongList } from '../../store/features/audioSlice';
-
+import $ from './style.module.scss';
 import { useAppDispatch } from '../../store';
 import { MusicInfo } from '../../types/main';
 
@@ -12,7 +10,7 @@ interface Props {
   index: number;
 }
 
-export default function PlayList({ row, index }: Props) {
+export default function SongDetail({ row, index }: Props) {
   const dispatch = useAppDispatch();
   const playSong = () => {
     console.log(row);
@@ -20,7 +18,14 @@ export default function PlayList({ row, index }: Props) {
   };
 
   return (
-    <TableRow key={`${row.image_album}${index}`}>
+    <TableRow
+      key={`${row.image_album}${index}`}
+      sx={{
+        '&:hover': {
+          backgroundColor: '#eaeaea',
+        },
+      }}
+    >
       <TableCell align="center">{row.id}</TableCell>
       <TableCell align="center">
         <img
@@ -34,7 +39,7 @@ export default function PlayList({ row, index }: Props) {
       <TableCell align="center">{row.artist}</TableCell>
       <TableCell align="center">{row.title_album}</TableCell>
       <TableCell align="center" onClick={playSong}>
-        <PlayArrowIcon sx={{ color: '#329dff' }} />
+        <PlayArrowIcon sx={{ color: '#329dff' }} className={$['play-icon']} />
       </TableCell>
     </TableRow>
   );

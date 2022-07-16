@@ -1,15 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import HashTag from '../../components/HashTag';
-import Table from '../../components/Table';
 import $ from './style.module.scss';
-import { songsdata } from '../../components/MusicPlayer/audio';
 import { MusicInfo } from '../../types/main';
 import { LoadMyPlayListDetail } from '../../api/LoadMyPlayListDetail';
-import { Song } from '../../types/playlist';
-import NewTable from '../../components/NewTable';
 import Button from '../../components/Button';
 import { setSongList } from '../../store/features/audioSlice';
 import { useAppDispatch } from '../../store';
+import MyPlaylistTable from '../../components/MyPlaylistTable';
 
 export default function MyPlayListDetail() {
   const dispatch = useAppDispatch();
@@ -50,10 +47,11 @@ export default function MyPlayListDetail() {
             </div>
           </div>
           <hr />
-          <NewTable list={allPlayList} />
-          {/*<Table list={playList} />*/}
+          <MyPlaylistTable list={allPlayList} />
         </section>
       </div>
     </div>
   );
 }
+
+//<NewTable list={allPlayList} />

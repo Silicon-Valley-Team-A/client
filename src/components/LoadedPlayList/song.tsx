@@ -12,7 +12,6 @@ interface Props {
 }
 
 export function Song({ row, index, selectMusic }: Props) {
-  console.log(row);
   const dispatch = useAppDispatch();
   const playSong = () => {
     dispatch(setSongList([row]));

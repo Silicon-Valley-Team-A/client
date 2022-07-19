@@ -13,6 +13,7 @@ export const AuthenticateUser = async (user: User) => {
 export const LogOut = async () => {
   try {
     const res = await AuthServices.postLogout();
+    console.log(res.data);
     return Promise.resolve(res.data);
   } catch (err) {
     Promise.reject(err);
@@ -22,8 +23,19 @@ export const LogOut = async () => {
 export const Register = async (SignupUser: SignupUser) => {
   try {
     const res = await AuthServices.postSignUp(SignupUser);
+    console.log(res.data);
     return Promise.resolve(res.data);
   } catch (err) {
     Promise.reject(err);
+  }
+};
+
+export const checkAuthentication = async () => {
+  try {
+    const res = await AuthServices.getAuth();
+    console.log(res.data);
+    return Promise.resolve(res.data);
+  } catch (err) {
+    Promise.resolve(err);
   }
 };

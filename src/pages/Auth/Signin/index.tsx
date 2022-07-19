@@ -31,11 +31,17 @@ export default function Signin() {
       const user: User = { email: signinEmail, password: signinPw };
       AuthenticateUser(user)
         .then(res => {
-          if (res.success) {
+          console.log(res);
+          if (res.status === 'success') {
+            console.log();
             localStorage.setItem('userId', res.user_id);
             navigate('/');
-          } else if (res.error) {
-            alert('아이디 또는 비밀번호를 확인해주세요');
+          } else if (res.status === 'error') {
+            {
+              res.message === 'Error authenticating'
+                ? alert('사용자가 존재하지 않습니다')
+                : alert('아이디 또는 비밀번호를 확인해주세요');
+            }
           }
         })
         .catch(error => {

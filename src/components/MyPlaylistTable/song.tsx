@@ -13,7 +13,6 @@ interface Props {
 export default function SongDetail({ row, index }: Props) {
   const dispatch = useAppDispatch();
   const playSong = () => {
-    console.log(row);
     dispatch(setSongList([row]));
   };
 
@@ -26,7 +25,7 @@ export default function SongDetail({ row, index }: Props) {
         },
       }}
     >
-      <TableCell align="center">{row.id}</TableCell>
+      <TableCell align="center">{index + 1}</TableCell>
       <TableCell align="center">
         <img
           src={row.image_album}

@@ -7,14 +7,43 @@ import Button from '../../components/Button';
 import { setSongList } from '../../store/features/audioSlice';
 import { useAppDispatch } from '../../store';
 import MyPlaylistTable from '../../components/MyPlaylistTable';
-
+import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
+import { useParams } from 'react-router-dom';
+interface Props {
+  id: number;
+  name: string;
+  tag: string;
+}
+interface Props2 {
+  userId: string;
+  id: string;
+}
 export default function MyPlayListDetail() {
   const dispatch = useAppDispatch();
   const [allPlayList, setAllPlayList] = useState<MusicInfo[]>([]);
+  const [hashtag, setHashTag] = useState('');
+  const [playlistTitle, setPlaylistTitle] = useState('');
 
-  useEffect(() => {
-    LoadMyPlayListDetail(1)
+  const { id } = useParams();
+  console.log(id);
+
+  const getPlaylistDetailData = ({ userId, id }: Props2) => {
+    console.log(userId);
+    LoadMyPlayList({ user_id: userId }).then(res => {
+      res.playlist.map((playlist: Props) => {
+        console.log(playlist);
+        if (playlist.id === parseInt(id)) {
+          setPlaylistTitle(playlist.name);
+          setHashTag(playlist.tag);
+        }
+      });
+    });
+  };
+
+  const getPlaylistTableData = (playlist_id: string) => {
+    LoadMyPlayListDetail(playlist_id)
       .then(data => {
+        console.log(data);
         const list = data.map((list: MusicInfo) => {
           return { ...list, selected: false };
         });
@@ -23,6 +52,13 @@ export default function MyPlayListDetail() {
       .catch(err => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (userId && id) {
+      getPlaylistTableData(id);
+      getPlaylistDetailData({ userId, id });
+    }
   }, []);
 
   const playAllPlaylist = () => {
@@ -37,12 +73,11 @@ export default function MyPlayListDetail() {
       <div className={$.container}>
         <section>
           <div className={$['playlist-header']}>
-            <h2 className={$['playlist-title']}>playlist 1</h2>
+            <h2 className={$['playlist-title']}>{playlistTitle}</h2>
             <div className={$['hashtag']}>
               <div className={$['playlist-hashtag']}>
                 <Button text={'플레이리스트 재생'} onClick={playAllPlaylist} />
-                <HashTag word="구름" />
-                <HashTag word="하늘" />
+                <HashTag word={hashtag} />
               </div>
             </div>
           </div>
@@ -53,5 +88,3 @@ export default function MyPlayListDetail() {
     </div>
   );
 }
-
-//<NewTable list={allPlayList} />

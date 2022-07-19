@@ -23,6 +23,7 @@ export default function MusicPlayer() {
 
   const updateProgress = useCallback(() => {
     if (audioRef.current && duration) {
+      const duration = audioRef.current.duration;
       const currentTime = audioRef.current.currentTime;
 
       if (currentTime >= duration) {
@@ -39,10 +40,10 @@ export default function MusicPlayer() {
       const clientWidth = clickRef.current?.clientWidth;
       const offsetX = e.nativeEvent.offsetX;
       const divprogress = (offsetX / clientWidth) * 100;
-      const newTime = (divprogress / 100) * 100;
+      const newTime = divprogress / 100;
 
-      audioRef.current.currentTime = newTime;
-      dispatch(adjustSongTime(newTime));
+      audioRef.current.currentTime = audioRef.current.duration * newTime;
+      dispatch(adjustSongTime(newTime * 100));
     }
   };
 
@@ -65,9 +66,11 @@ export default function MusicPlayer() {
     initialTime();
   }, []);
 
+  if (!isPause) audioRef.current?.play();
+
   useEffect(() => {
-    !isPause ? audioRef.current?.play() : audioRef.current?.pause();
-  }, [isPause]);
+    if (!isPause) audioRef.current?.play();
+  }, []);
 
   return (
     <div className={$.content}>
@@ -97,7 +100,7 @@ export default function MusicPlayer() {
         >
           <div
             className={$['progress_bar']}
-            style={{ width: duration && `${(progress / duration) * 100}%` }}
+            style={{ width: `${progress}%` }}
           ></div>
         </div>
       </div>

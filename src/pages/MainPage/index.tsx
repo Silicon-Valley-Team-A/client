@@ -38,7 +38,7 @@ function MainPage() {
           setImageUrl(data.image);
 
           const list = data.music.map((list: MusicInfo) => {
-            return { ...list, selected: false };
+            return { ...list, duration: list.duration / 1000, selected: false };
           });
           setPlayList(list);
         })

@@ -50,6 +50,7 @@ export const audioSlice = createSlice({
     },
     skipNextSong: state => {
       if (state.currentSongIdx < state.playList.length - 1) {
+        state.isPause = false;
         state.currentSongIdx += 1;
         state.progress = 0;
       }

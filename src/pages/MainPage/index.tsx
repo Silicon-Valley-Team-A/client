@@ -5,7 +5,7 @@ import { firstText, secondText } from '../../__mocks/maintext';
 import { HeartBox, MusicFolder } from '../../Icon';
 import { memo, useEffect, useState } from 'react';
 import LoadedPlayList from '../../components/LoadedPlayList';
-import { LoadPlayList } from '../../api/LoadPlayList';
+import { LoadPlayList, SavePlayList } from '../../api/LoadPlayList';
 import Button from '../../components/Button';
 import { MusicInfo } from '../../types/main';
 import Popup from '../../components/Popup';
@@ -28,8 +28,11 @@ function MainPage() {
 
   useEffect(() => {
     if (selectedImage && selectedGenre) {
+      const formData = new FormData();
+      formData.append('upload_image', selectedImage);
+
       const imageGenre = {
-        image: selectedImage,
+        image: formData,
         genre: matchGenreToEng(selectedGenre),
       };
 
@@ -63,19 +66,37 @@ function MainPage() {
   const saveToPlayList = (name: string) => {
     if (selectedMusic.length) {
       // fetch
-      setShowInputModal(false);
-      setShowPopup(true);
-
-      setPlayList(prevList =>
-        prevList.map(info => {
-          return { ...info, selected: false };
+      const songInfo = {
+        user_id: 1,
+        name: name,
+        tag: selectedGenre,
+        songs: selectedMusic.map(({ selected, ...remain }) => {
+          return {
+            ...remain,
+          };
         }),
-      );
-      setSelectedMusic([]);
+      };
 
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 2000);
+      SavePlayList(songInfo)
+        .then(data => {
+          console.log(data);
+          setShowInputModal(false);
+          setShowPopup(true);
+
+          setPlayList(prevList =>
+            prevList.map(info => {
+              return { ...info, selected: false };
+            }),
+          );
+          setSelectedMusic([]);
+
+          setTimeout(() => {
+            setShowPopup(false);
+          }, 2000);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
 

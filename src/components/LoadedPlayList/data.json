@@ -1,5 +1,5 @@
 {
-  "playList": [
+  "music": [
     {
       "imageUrl": "https://blog.kakaocdn.net/dn/xxyIJ/btq92x3CGjB/Yc203QOlRmjDO2rjKC4TDK/img.jpg"
     },
@@ -37,7 +37,7 @@
       "artist": "IU",
       "title_album": "",
       "duration": 100,
-      "file": "https://jennicorbus.com/audio/tagged.mp3"
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     },
     {
       "id": 5,
@@ -46,7 +46,7 @@
       "artist": "Taylor Swift",
       "title_album": "",
       "duration": 100,
-      "file": "https://jennicorbus.com/audio/nemo.mp3"
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     },
     {
       "id": 6,
@@ -55,16 +55,16 @@
       "artist": "헤이즈",
       "title_album": "",
       "duration": 100,
-      "file": "https://jennicorbus.com/audio/select.wav"
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     },
     {
       "id": 7,
-      "image_album": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aa32cd120337375.100af900aee888.jpg",
+      "image_album": "https://images.otwojob.com/product/l/P/y/lPyeRApeC7zTmsB.png/o2j/resize/900%3E",
       "title": "Wave",
       "artist": "하이라이트",
       "title_album": "",
       "duration": 100,
-      "file": "https://jennicorbus.com/audio/mouse-click.mp3"
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
     }
   ]
 }

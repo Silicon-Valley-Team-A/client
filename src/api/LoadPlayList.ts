@@ -1,7 +1,7 @@
 import MainServices from '../services/MainServices';
-import { PlayListInfo, ImageGenre } from '../types/main';
+import { PlayListInfo } from '../types/main';
 
-export const LoadPlayList = async (info: ImageGenre) => {
+export const LoadPlayList = async (info: FormData) => {
   try {
     const res = await MainServices.getPlayList(info);
     return Promise.resolve(res.data);

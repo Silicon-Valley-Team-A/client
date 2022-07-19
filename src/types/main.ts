@@ -5,7 +5,7 @@ export type MusicInfo = Song & {
 };
 
 export type ImageGenre = {
-  image: FormData;
+  upload_image: FormData;
   genre: string;
 };
 

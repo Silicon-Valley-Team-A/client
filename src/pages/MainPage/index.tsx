@@ -30,17 +30,14 @@ function MainPage() {
     if (selectedImage && selectedGenre) {
       const formData = new FormData();
       formData.append('upload_image', selectedImage);
+      formData.append('genre', matchGenreToEng(selectedGenre));
 
-      const imageGenre = {
-        image: formData,
-        genre: matchGenreToEng(selectedGenre),
-      };
-
-      LoadPlayList(imageGenre)
+      LoadPlayList(formData)
         .then(data => {
-          setImageUrl(data[0].imageUrl);
+          console.log(data);
+          setImageUrl(data.image);
 
-          const list = data.slice(1).map((list: MusicInfo) => {
+          const list = data.music.map((list: MusicInfo) => {
             return { ...list, selected: false };
           });
           setPlayList(list);

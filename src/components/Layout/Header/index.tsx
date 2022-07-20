@@ -26,7 +26,7 @@ export default function Header() {
       });
   };
 
-  const onClickPlaylist = async (
+  const onClickPlaylist = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
   ) => {
     isLogin() ? navigate('/myplaylist') : navigate('/signin');

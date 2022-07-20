@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import $ from './style.module.scss';
+import { useState, useEffect } from 'react';
 import PlayListComponents from '../../components/Playlist';
 import { Link } from 'react-router-dom';
 import { PlayListThumb } from '../../types/playlist';

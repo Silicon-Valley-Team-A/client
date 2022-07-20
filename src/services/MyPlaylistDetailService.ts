@@ -5,7 +5,7 @@ const getMyPlaylistDetail = (playlist_id: string) =>
   http.get(`playlist/${playlist_id}`, { withCredentials: true });
 
 const getMyPlaylist = (user_id: userId) =>
-  http.post(`playlist`, user_id, { withCredentials: true }); //임시
+  http.post(`playlist`, user_id, { withCredentials: true });
 
 const MyPlaylistDetailService = {
   getMyPlaylistDetail,

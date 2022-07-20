@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import $ from '../style.module.scss';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthenticateUser } from '../../../api/Auth';
 import { User } from '../../../types/auth';
-import { useNavigate } from 'react-router-dom';
-import { isLogined } from '../../../utils/isLogin';
 
 export default function Signin() {
   const navigate = useNavigate();

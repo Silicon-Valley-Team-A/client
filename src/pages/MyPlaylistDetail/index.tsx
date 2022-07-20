@@ -1,24 +1,26 @@
-import { useEffect, useState } from 'react';
-import HashTag from '../../components/HashTag';
 import $ from './style.module.scss';
+import HashTag from '../../components/HashTag';
+import Button from '../../components/Button';
+import MyPlaylistTable from '../../components/MyPlaylistTable';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { MusicInfo } from '../../types/main';
 import { LoadMyPlayListDetail } from '../../api/LoadMyPlayListDetail';
-import Button from '../../components/Button';
 import { setSongList } from '../../store/features/audioSlice';
 import { useAppDispatch } from '../../store';
-import MyPlaylistTable from '../../components/MyPlaylistTable';
 import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
-import { useParams } from 'react-router-dom';
-import { isLogined } from '../../utils/isLogin';
-interface Props {
+
+interface LoadUserPlaylistInfo {
+  userId: string;
+  id: string;
+}
+
+interface LoadPlaylistInfo {
   id: number;
   name: string;
   tag: string;
 }
-interface Props2 {
-  userId: string;
-  id: string;
-}
+
 export default function MyPlayListDetail() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -26,11 +28,9 @@ export default function MyPlayListDetail() {
   const [hashtag, setHashTag] = useState('');
   const [playlistTitle, setPlaylistTitle] = useState('');
 
-  const getPlaylistDetailData = ({ userId, id }: Props2) => {
-    console.log(userId);
+  const getPlaylistDetailData = ({ userId, id }: LoadUserPlaylistInfo) => {
     LoadMyPlayList({ user_id: userId }).then(res => {
-      res.playlist.map((playlist: Props) => {
-        console.log(playlist);
+      res.playlist.map((playlist: LoadPlaylistInfo) => {
         if (playlist.id === parseInt(id)) {
           setPlaylistTitle(playlist.name);
           setHashTag(playlist.tag);
@@ -42,7 +42,6 @@ export default function MyPlayListDetail() {
   const getPlaylistTableData = (playlist_id: string) => {
     LoadMyPlayListDetail(playlist_id)
       .then(data => {
-        isLogined();
         const list = data.map((list: MusicInfo) => {
           return { ...list, selected: false };
         });

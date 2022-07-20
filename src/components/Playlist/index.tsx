@@ -1,5 +1,5 @@
 import $ from './style.module.scss';
-import { AllPlayList, PlayListThumbImage, Song } from '../../types/playlist';
+
 interface Props {
   id: number;
   playlist_name: string;
@@ -18,7 +18,6 @@ export default function PlayListComponents({
       <div className={$.playlistcontainer}>
         <div className={$.playlist}>
           {thumbnail[index].map(thumbimg => {
-            console.log(thumbimg);
             return (
               <div className={$['playlist-thumbnail']} key={`${id}${thumbimg}`}>
                 <img src={thumbimg} />

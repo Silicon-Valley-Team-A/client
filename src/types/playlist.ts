@@ -17,9 +17,6 @@ export type PlayListThumb = {
   name: string;
   tag: string;
 };
-export type PlayListThumbImage = {
-  img: string;
-};
 
 export type Song = {
   id: string;

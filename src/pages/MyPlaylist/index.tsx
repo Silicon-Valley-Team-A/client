@@ -2,16 +2,10 @@ import { useState, useEffect } from 'react';
 import $ from './style.module.scss';
 import PlayListComponents from '../../components/Playlist';
 import { Link } from 'react-router-dom';
-import {
-  AllPlayList,
-  PlayListThumb,
-  PlayListThumbImage,
-  userId,
-} from '../../types/playlist';
+import { PlayListThumb } from '../../types/playlist';
 import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
 
 export default function MyPlayList() {
-  // const [allPlaylist, setAllPlaylist] = useState<AllPlayList[]>([]);
   const [userName, setUserName] = useState('');
   const [allPlaylist, setAllPlaylist] = useState<PlayListThumb[]>([]);
   const [playlistTumbImg, setPlaylistThumbImg] = useState([]);

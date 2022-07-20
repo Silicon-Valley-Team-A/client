@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthenticateUser } from '../../../api/Auth';
 import { User } from '../../../types/auth';
 import { useNavigate } from 'react-router-dom';
+import { isLogined } from '../../../utils/isLogin';
 
 export default function Signin() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ export default function Signin() {
   const handleInputPw = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSigninPw(e.target.value);
   };
-
   const onClickSubmit = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
@@ -31,9 +31,7 @@ export default function Signin() {
       const user: User = { email: signinEmail, password: signinPw };
       AuthenticateUser(user)
         .then(res => {
-          console.log(res);
           if (res.status === 'success') {
-            console.log();
             localStorage.setItem('userId', res.user_id);
             navigate('/');
           } else if (res.status === 'error') {

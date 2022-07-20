@@ -8,7 +8,7 @@ const postSignin = (user: User) =>
 const postLogout = () => http.post(`logout`, {}, { withCredentials: true });
 const postSignUp = (user: SignupUser) =>
   http.post(`register`, user, { withCredentials: true });
-const getAuth = () => http.get(`authenticated`);
+const getAuth = () => http.get(`authenticated`, { withCredentials: true });
 
 const AuthServices = {
   postSignin,

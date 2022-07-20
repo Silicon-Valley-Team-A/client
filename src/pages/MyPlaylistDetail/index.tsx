@@ -9,6 +9,7 @@ import { useAppDispatch } from '../../store';
 import MyPlaylistTable from '../../components/MyPlaylistTable';
 import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
 import { useParams } from 'react-router-dom';
+import { isLogined } from '../../utils/isLogin';
 interface Props {
   id: number;
   name: string;
@@ -19,13 +20,11 @@ interface Props2 {
   id: string;
 }
 export default function MyPlayListDetail() {
+  const { id } = useParams();
   const dispatch = useAppDispatch();
   const [allPlayList, setAllPlayList] = useState<MusicInfo[]>([]);
   const [hashtag, setHashTag] = useState('');
   const [playlistTitle, setPlaylistTitle] = useState('');
-
-  const { id } = useParams();
-  console.log(id);
 
   const getPlaylistDetailData = ({ userId, id }: Props2) => {
     console.log(userId);
@@ -43,7 +42,7 @@ export default function MyPlayListDetail() {
   const getPlaylistTableData = (playlist_id: string) => {
     LoadMyPlayListDetail(playlist_id)
       .then(data => {
-        console.log(data);
+        isLogined();
         const list = data.map((list: MusicInfo) => {
           return { ...list, selected: false };
         });

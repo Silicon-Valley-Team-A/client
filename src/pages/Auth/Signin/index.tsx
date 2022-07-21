@@ -1,7 +1,7 @@
 import $ from '../style.module.scss';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthenticateUser } from '../../../api/Auth';
+import { AuthenticateUser, SetCSRF } from '../../../api/Auth';
 import { User } from '../../../types/auth';
 
 export default function Signin() {
@@ -27,6 +27,7 @@ export default function Signin() {
       alert('비밀번호를 입력해 주세요');
     } else {
       const user: User = { email: signinEmail, password: signinPw };
+
       AuthenticateUser(user)
         .then(res => {
           if (res.status === 'success') {

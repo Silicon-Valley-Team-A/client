@@ -36,3 +36,12 @@ export const checkAuthentication = async () => {
     Promise.resolve(err);
   }
 };
+
+export const SetCSRF = async () => {
+  try {
+    const res = await AuthServices.getCSRF();
+    return Promise.resolve(res.data);
+  } catch (err) {
+    Promise.resolve(err);
+  }
+};

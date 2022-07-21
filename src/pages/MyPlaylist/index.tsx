@@ -16,7 +16,6 @@ export default function MyPlayList() {
     if (userId) {
       LoadMyPlayList({ user_id: userId })
         .then(response => {
-          console.log(response);
           const responseAllPlaylist: PlayListThumb[] = response.playlist;
           setAllPlaylist(responseAllPlaylist);
           setUserName(response.username);

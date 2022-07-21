@@ -1,0 +1,68 @@
+{
+  "playlist": [
+    {
+      "id": 1,
+      "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/103/46/650/10346650_500.jpg/melon/resize/120/quality/80/optimize",
+      "title": "Bluming",
+      "artist": "IU",
+      "title_album": "Love poem",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    },
+    {
+      "id": 2,
+      "image_album": "https://upload.wikimedia.org/wikipedia/en/7/79/Ive_%E2%80%93_Love_Dive.jpg",
+      "title": "LOVE DIVE",
+      "artist": "Ive",
+      "title_album": "LOVE DIVE",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    },
+    {
+      "id": 3,
+      "image_album": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+      "title": "POP!",
+      "artist": "나연",
+      "title_album": "IM NAYEON",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    },
+    {
+      "id": 3,
+      "image_album": "https://search.pstatic.net/common?type=n&size=190x190&quality=95&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F385%2F7385585.jpg%3Ftype%3Dr204Fll%26v%3D20220405155416",
+      "title": "TOMBOY",
+
+      "artist": "(여자) 아이들",
+      "title_album": "TOMBOY",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    },
+    {
+      "id": 4,
+      "image_album": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+      "title": "POP!",
+      "artist": "나연",
+      "title_album": "IM NAYEON",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    },
+    {
+      "id": 5,
+      "image_album": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+      "title": "POP!",
+      "artist": "나연",
+      "title_album": "IM NAYEON",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    },
+    {
+      "id": 6,
+      "image_album": "https://search.pstatic.net/common/?src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F617%2F7617997.jpg%3Ftype%3Dr204Fll%26v%3D20220701124947&type=f164_164",
+      "title": "POP!",
+      "artist": "나연",
+      "title_album": "IM NAYEON",
+      "duration": 100,
+      "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse"
+    }
+  ]
+}

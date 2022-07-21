@@ -12,7 +12,7 @@ export default function Header() {
   ): void => {
     LogOut()
       .then(res => {
-        if (res.success) {
+        if (res.status === 'success') {
           localStorage.removeItem('userId');
           alert('로그아웃 하였습니다');
           navigate(`/`);

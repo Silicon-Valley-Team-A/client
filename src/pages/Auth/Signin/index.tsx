@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import $ from '../style.module.scss';
-import { Link } from 'react-router-dom';
-import { AuthenticateUser } from '../../../api/Auth';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthenticateUser, SetCSRF } from '../../../api/Auth';
 import { User } from '../../../types/auth';
-import { useNavigate } from 'react-router-dom';
 
 export default function Signin() {
   const navigate = useNavigate();
@@ -18,7 +17,6 @@ export default function Signin() {
   const handleInputPw = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSigninPw(e.target.value);
   };
-
   const onClickSubmit = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
@@ -29,13 +27,18 @@ export default function Signin() {
       alert('비밀번호를 입력해 주세요');
     } else {
       const user: User = { email: signinEmail, password: signinPw };
+
       AuthenticateUser(user)
         .then(res => {
-          if (res.success) {
+          if (res.status === 'success') {
             localStorage.setItem('userId', res.user_id);
             navigate('/');
-          } else if (res.error) {
-            alert('아이디 또는 비밀번호를 확인해주세요');
+          } else if (res.status === 'error') {
+            {
+              res.message === 'Error authenticating'
+                ? alert('사용자가 존재하지 않습니다')
+                : alert('아이디 또는 비밀번호를 확인해주세요');
+            }
           }
         })
         .catch(error => {

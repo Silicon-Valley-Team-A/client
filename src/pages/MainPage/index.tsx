@@ -15,6 +15,7 @@ import GenreModal from '../../components/GenreModal';
 import { matchGenreToEng } from '../../utils/matchGenreToEng';
 import { useAppDispatch } from '../../store';
 import { setSongList } from '../../store/features/audioSlice';
+import { SetCSRF } from '../../api/Auth';
 
 function MainPage() {
   const dispatch = useAppDispatch();
@@ -25,6 +26,12 @@ function MainPage() {
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
   const [showPopup, setShowPopup] = useState(false);
   const [showInputModal, setShowInputModal] = useState(false);
+
+  useEffect(() => {
+    SetCSRF().catch(error => {
+      console.log(error);
+    });
+  }, []);
 
   useEffect(() => {
     if (selectedImage && selectedGenre) {

@@ -1,19 +1,32 @@
 import $ from './style.module.scss';
-import { AllPlayList, PlayList } from '../../types/playlist';
 
-export default function PlayListComponents(playlist: AllPlayList) {
+interface Props {
+  id: number;
+  playlist_name: string;
+  thumbnail: { [key: number]: string[] };
+  index: number;
+}
+
+export default function PlayListComponents({
+  id,
+  playlist_name,
+  thumbnail,
+  index,
+}: Props) {
   return (
     <section>
-      <div className={$.playlist}>
-        {playlist.playlist.map((music: PlayList) => {
-          return (
-            <div className={$['playlist-thumbnail']} key={music.id}>
-              <img src={music.imgurl} />
-            </div>
-          );
-        })}
+      <div className={$.playlistcontainer}>
+        <div className={$.playlist}>
+          {thumbnail[index].map(thumbimg => {
+            return (
+              <div className={$['playlist-thumbnail']} key={`${id}${thumbimg}`}>
+                <img src={thumbimg} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className={$['playlist-name']}>{playlist.playlist_title}</div>
+      <div className={$['playlist-name']}>{playlist_name}</div>
     </section>
   );
 }

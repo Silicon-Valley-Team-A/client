@@ -1,38 +1,69 @@
-import { useEffect, useRef, useState } from 'react';
-import HashTag from '../../components/HashTag';
-import MusicPlayer from '../../components/MusicPlayer';
-import Table from '../../components/Table';
 import $ from './style.module.scss';
-import { songsdata } from '../../components/MusicPlayer/audio';
+import HashTag from '../../components/HashTag';
+import Button from '../../components/Button';
+import MyPlaylistTable from '../../components/MyPlaylistTable';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { MusicInfo } from '../../types/main';
+import { LoadMyPlayListDetail } from '../../api/LoadMyPlayListDetail';
+import { setSongList } from '../../store/features/audioSlice';
+import { useAppDispatch } from '../../store';
+import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
+
+interface LoadUserPlaylistInfo {
+  userId: string;
+  id: string;
+}
+
+interface LoadPlaylistInfo {
+  id: number;
+  name: string;
+  tag: string;
+}
 
 export default function MyPlayListDetail() {
-  const [songs, setSongs] = useState(songsdata);
-  const [isPlaying, setisPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songsdata[0]);
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const [allPlayList, setAllPlayList] = useState<MusicInfo[]>([]);
+  const [hashtag, setHashTag] = useState('');
+  const [playlistTitle, setPlaylistTitle] = useState('');
 
-  const audioElem = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    if (audioElem.current) {
-      if (isPlaying) {
-        audioElem.current.play();
-      } else {
-        audioElem.current.pause();
-      }
-    }
-  }, [isPlaying]);
-
-  const onPlaying = () => {
-    if (audioElem.current) {
-      const duration = audioElem.current.duration;
-      const ct = audioElem.current.currentTime;
-
-      setCurrentSong({
-        ...currentSong,
-        progress: (ct / duration) * 100,
-        length: duration,
+  const getPlaylistDetailData = ({ userId, id }: LoadUserPlaylistInfo) => {
+    LoadMyPlayList({ user_id: userId }).then(res => {
+      res.playlist.map((playlist: LoadPlaylistInfo) => {
+        if (playlist.id === parseInt(id)) {
+          setPlaylistTitle(playlist.name);
+          setHashTag(playlist.tag);
+        }
       });
+    });
+  };
+
+  const getPlaylistTableData = (playlist_id: string) => {
+    LoadMyPlayListDetail(playlist_id)
+      .then(data => {
+        const list = data.map((list: MusicInfo) => {
+          return { ...list, selected: false };
+        });
+        setAllPlayList(list);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (userId && id) {
+      getPlaylistTableData(id);
+      getPlaylistDetailData({ userId, id });
     }
+  }, []);
+
+  const playAllPlaylist = () => {
+    const playList = allPlayList.map(({ selected, ...remain }) => {
+      return { ...remain };
+    });
+    dispatch(setSongList(playList));
   };
 
   return (
@@ -40,27 +71,18 @@ export default function MyPlayListDetail() {
       <div className={$.container}>
         <section>
           <div className={$['playlist-header']}>
-            <h2 className={$['playlist-title']}>playlist 1</h2>
+            <h2 className={$['playlist-title']}>{playlistTitle}</h2>
             <div className={$['hashtag']}>
               <div className={$['playlist-hashtag']}>
-                <HashTag word="구름" />
-                <HashTag word="하늘" />
+                <Button text={'플레이리스트 재생'} onClick={playAllPlaylist} />
+                <HashTag word={hashtag} />
               </div>
             </div>
           </div>
           <hr />
-          <Table />
+          <MyPlaylistTable list={allPlayList} />
         </section>
       </div>
-      {/* <audio ref={audioElem} src={currentSong.file} onTimeUpdate={onPlaying} /> */}
-      {/* <MusicPlayer
-        songs={songs}
-        isPause={isPlaying}
-        setisplaying={setisPlaying}
-        audioElem={audioElem}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-      /> */}
     </div>
   );
 }

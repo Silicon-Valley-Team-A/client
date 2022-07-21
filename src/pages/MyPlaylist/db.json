@@ -7,26 +7,46 @@
         {
           "id": 1,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://cdnimg.melon.co.kr/cm2/album/images/103/46/650/10346650_500.jpg/melon/resize/120/quality/80/optimize"
+          "artist": "'ive",
+          "duration": 100,
+          "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse",
+          "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/103/46/650/10346650_500.jpg/melon/resize/120/quality/80/optimize",
+          "title_album": "",
+          "progress": 0,
+          "length": 0
         },
         {
           "id": 2,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://upload.wikimedia.org/wikipedia/en/7/79/Ive_%E2%80%93_Love_Dive.jpg"
+          "artist": "'ive",
+          "duration": 100,
+          "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse",
+          "image_album": "https://upload.wikimedia.org/wikipedia/en/7/79/Ive_%E2%80%93_Love_Dive.jpg",
+          "title_album": "",
+          "progress": 0,
+          "length": 0
         },
         {
           "id": 3,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAFwAXAMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAADBAIFAAEGB//EADMQAAIBAwMBBgQFBAMAAAAAAAECAwAEEQUSITETIkFRYXEGgaHRFDKRscEVIyRSB2Lx/8QAGQEAAgMBAAAAAAAAAAAAAAAAAwQAAQIF/8QAHxEAAgICAwEBAQAAAAAAAAAAAAECEQMhBBIxQSIy/9oADAMBAAIRAxEAPwD0sJ6VgTnpWxJnrU1kFNiSojs9KC689KZLA1AqDVWWwHZf9l6+dSC4OAU48zRNvoK3t9B+lS2UkCMW7qV6+dDeDA6g00MeS/pW9oPXFS2TqIGH0rYip0xr4VDYBV2V1F+zrYSj7RWYFQlAtwBre+ly1a3etWZsaEg8632g86TzUt3GeTUo0mQ/rumxaoLG6n7JgpZ2kBVQAAevjnOOM88das1u7K/UnT8l1kMZB7vI8gfcV5FaafqPxNrd9qc6pGscuOxmySBjOOMeGK9A+EtLtpppJndomBMaqhYBiDyck5PI9vek3kd6Ho4V12XEjGN2R+GU4I8qiZ6p/iaPX4L+Q6ZNZ3HHCzJsK58CQOab0Gz1i50pW1S3gS+L52wzd3ZjqM+Z8KKs0XpgZYJLaGzcVHtzVfNdJFP2DhxNnGwqc0XdRkkLttDfbVnbUpuNZuNXRVhDUCaLxUGAqyURzUgawRswyBx51p2ihGZJB7ChyyRj6wkcM5eI4nWo9U0jWLm+0qEm3nYdsGkUDJ53DyHUVe6TeatqNpayLDsAAEssymM8dSv+3I4I4wc5pi91+ztUcrJgopc7F3tgdTXHH/kuO/1W10/ToJf8iVYzcT90AE9QPH6UjKm9HRx3D+mekXTQ2ZaSaQFyASWPpVTffEKwz2TQ3CgvHlSD17zD+KY1GzsLkMLyKGbtAFPbANnj1/iq220m002CC2totsMMZVOchQZGbHPq31oe/jCeUwPxbem7s1vYh/l25L7kGc8D9OBitfCepXV/Zul46SyxEf3kGBICMj5jOD658qeYfiEFrNCAFHCgYVvWl9Ftn0+4ntSuI5G7SLA+RHv96PxszlKpMV5OOPW0W/NZiszWZp4QoNyeBnNR7SOPG5WdmOFUDrxmpjmgGZ+1KRwt3ACZABjOenXPr8qDmk0qQzx4xcrl8ISNK3dljMkg6lXKRr6DxPvSMukw3LZuAAP9Uz+5qzxxycnxNRNSGCK9KnyZvS0hUadapZy20ESRpKhViBycjx868Y1nTJdGaeQKFlgmJTj8pHII/QGvb64j400ZtQtJtQgBZhKRIvmijb/BNVmhatfCsU97OoFwlwh3kHKgEfIUS0mJ7rkMyqc+o5xXPQRzwapdphmhkIdSB+UgAfXino+1iulc/kdCh98n+CaQa8OnF2i9tp1c4ZefDijMFcKRhx1FL2I7mPOiTF1yqjAI49DScrg7RiaV0brKApdQMsG46+dH9663DyyyR/Rz80FF6LawgiaOeSQEtEu4c8Gt3FnC1kbyIMG3YYZ46/epaew/DXuD0i+9F08iewng6ns9wHzP2FFa/XY0lqhO5tI4rCCYbu0kPPPArNOsorxZkO4SquVIPFMX7L/TLfyEjAfLIpWwult5RL4B1De3Nbt0Z6rsKFEEDZVhIHC5zxjnw+VBuNPVLNGYv2dyXYr08cHHv1+dWutRCCaQgd2RlcfXP1olyhu9Hj7FdzQSFOPIcfap28ZSh6io1fS2ttU0+6tHY2pAaSIgHtM8EdOAAQfesezabT7q81BDBDCxcRwnlsdBk+OOvzro4oxJp0O8HfEdo9KlfpC8aWW4KRjIHr+9LPcUNJ0c/b6c7fhVgyVniWQAn8ueuTT34e3Zpgu91hxvbON2Tg44plJxDbXNwqNGkQW2gVwQQAOvPv8ASgwEW+jvLIApnkAX2B/9pOUUmbbbFrzTIrS/jjG9oJTnryPPmlWXk4GB4Ve7kvbEMO9Jby4ORzjP2/aqXdGPOjY8scK0tMDkh3GNNkH4PUjk4EBP71DSbiS1uIJpVZIpLd9u7xwSf4+tUbsc9ajuPnXRcLF1Mu71pR8M2MhRstIx9sk4zSEKSGxnfvOEZdxHQdaT3HzrNx6Zq+tE7pnRiRtSs9LjHMizFHPltGcn5YrejyXc2n6jCSTJFyncA7wzxgDzFc1uI6Gto7BXwfChzjUWEhO2dNZy3P8AQ455JTJi5VmcpjKZGTQXlNnqF5qt42Y1LC3iI5kboMemPGudglftlGeMUW/c9gT6UCSoYSssIrm61bTbWNHCuZ5GuXI4TnIJ8uD9Klqly9/cxQWLkW8GEjOOZD4muYsWOW5q2iY460jlZpIuNDa5stduILqT+1NuUJt4DZyD+mRVftYdZR+lBZm86EztnrW4Y1NUZbpn/9k="
+          "artist": "'ive",
+          "image_album": "data:image/jpeg;base64,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",
+          "duration": 100,
+          "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse",
+          "title_album": "",
+          "progress": 0,
+          "length": 0
         },
         {
           "id": 4,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg/melon/resize/120/quality/80/optimize"
+          "artist": "'ive",
+          "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg/melon/resize/120/quality/80/optimize",
+          "duration": 100,
+          "file": "https://beardbarnmusicbucket.s3.amazonaws.com/The+Wild+Horse",
+          "title_album": "",
+          "progress": 0,
+          "length": 0
         }
       ]
     },
@@ -37,26 +57,26 @@
         {
           "id": 5,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://search.pstatic.net/common?type=f&size=150x150&quality=100&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F006%2F714%2F6714873.jpg%3Ftype%3Dr204Fll%26v%3D20220410180351"
+          "artist": "'ive",
+          "image_album": "https://search.pstatic.net/common?type=f&size=150x150&quality=100&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F006%2F714%2F6714873.jpg%3Ftype%3Dr204Fll%26v%3D20220410180351"
         },
         {
           "id": 6,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/246/10554246_20210325161233_500.jpg/melon/resize/120/quality/80/optimize"
+          "artist": "'ive",
+          "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/246/10554246_20210325161233_500.jpg/melon/resize/120/quality/80/optimize"
         },
         {
           "id": 7,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://search.pstatic.net/common?type=n&size=190x190&quality=95&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F385%2F7385585.jpg%3Ftype%3Dr204Fll%26v%3D20220405155416"
+          "artist": "'ive",
+          "image_album": "https://search.pstatic.net/common?type=n&size=190x190&quality=95&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F007%2F385%2F7385585.jpg%3Ftype%3Dr204Fll%26v%3D20220405155416"
         },
         {
           "id": 8,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://search.pstatic.net/common?type=f&size=150x150&quality=100&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F006%2F274%2F6274369.jpg%3Ftype%3Dr204Fll%26v%3D20220106082516"
+          "artist": "'ive",
+          "image_album": "https://search.pstatic.net/common?type=f&size=150x150&quality=100&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F006%2F274%2F6274369.jpg%3Ftype%3Dr204Fll%26v%3D20220106082516"
         }
       ]
     },
@@ -67,26 +87,26 @@
         {
           "id": 9,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://cdnimg.melon.co.kr/cm2/album/images/106/95/590/10695590_20210827162225_500.jpg/melon/resize/120/quality/80/optimize"
+          "artist": "'ive",
+          "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/106/95/590/10695590_20210827162225_500.jpg/melon/resize/120/quality/80/optimize"
         },
         {
           "id": 10,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://cdnimg.melon.co.kr/cm2/album/images/106/07/796/10607796_20210513201807_500.jpg/melon/resize/120/quality/80/optimize"
+          "artist": "'ive",
+          "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/106/07/796/10607796_20210513201807_500.jpg/melon/resize/120/quality/80/optimize"
         },
         {
           "id": 11,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg/melon/resize/120/quality/80/optimize"
+          "artist": "'ive",
+          "image_album": "https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg/melon/resize/120/quality/80/optimize"
         },
         {
           "id": 12,
           "title": "love dive",
-          "singer": "'ive",
-          "imgurl": "https://search.pstatic.net/common?type=f&size=150x150&quality=100&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F005%2F739%2F5739003.jpg%3Ftype%3Dr204Fll%26v%3D20220517100952"
+          "artist": "'ive",
+          "image_album": "https://search.pstatic.net/common?type=f&size=150x150&quality=100&direct=true&src=https%3A%2F%2Fmusicmeta-phinf.pstatic.net%2Falbum%2F005%2F739%2F5739003.jpg%3Ftype%3Dr204Fll%26v%3D20220517100952"
         }
       ]
     }

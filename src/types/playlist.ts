@@ -2,14 +2,20 @@ export type PlayList = {
   id: number;
   title: string;
   artist: string;
-  imgurl: string;
+  image_album: string;
 };
 
 export type AllPlayList = {
   playlist_title: string;
   id: number;
   title: string;
-  playlist: PlayList[];
+  playlist: Song[];
+};
+
+export type PlayListThumb = {
+  id: number;
+  name: string;
+  tag: string;
 };
 
 export type Song = {
@@ -23,3 +29,5 @@ export type Song = {
 };
 
 export type setCurrentSong = React.Dispatch<React.SetStateAction<Song>>;
+
+export type userId = { user_id: string };

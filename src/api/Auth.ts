@@ -1,4 +1,4 @@
-import AuthServices from '../services/Auth/AuthServices';
+import AuthServices from '../services/AuthServices';
 import { SignupUser, User } from '../types/auth';
 
 export const AuthenticateUser = async (user: User) => {
@@ -25,5 +25,23 @@ export const Register = async (SignupUser: SignupUser) => {
     return Promise.resolve(res.data);
   } catch (err) {
     Promise.reject(err);
+  }
+};
+
+export const checkAuthentication = async () => {
+  try {
+    const res = await AuthServices.getAuth();
+    return Promise.resolve(res.data);
+  } catch (err) {
+    Promise.resolve(err);
+  }
+};
+
+export const SetCSRF = async () => {
+  try {
+    const res = await AuthServices.getCSRF();
+    return Promise.resolve(res.data);
+  } catch (err) {
+    Promise.resolve(err);
   }
 };

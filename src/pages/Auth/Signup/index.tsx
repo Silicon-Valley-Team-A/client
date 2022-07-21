@@ -47,13 +47,13 @@ export default function Signup() {
       };
       Register(signupUser)
         .then(res => {
-          if (res.result === 'User created successfully') {
+          if (res.status === 'success') {
             alert('회원가입이 완료되었습니다');
             navigate('/signin');
-          } else if (res.error === 'User already exists') {
-            alert('이미 가입된 계정입니다');
-          } else {
-            alert('회원가입에 실패하였습니다');
+          } else if (res.status === 'error') {
+            res.message === 'User already exists'
+              ? alert('가입된 계정이 이미 존재합니다')
+              : alert('회원가입에 실패하였습니다');
           }
         })
         .catch(error => {

@@ -17,9 +17,12 @@ export default function PlayListComponents({
     <section>
       <div className={$.playlistcontainer}>
         <div className={$.playlist}>
-          {thumbnail[index].map(thumbimg => {
+          {thumbnail[index].map((thumbimg, index) => {
             return (
-              <div className={$['playlist-thumbnail']} key={`${id}${thumbimg}`}>
+              <div
+                className={$['playlist-thumbnail']}
+                key={`${id}${thumbimg}${index}`}
+              >
                 <img src={thumbimg} />
               </div>
             );

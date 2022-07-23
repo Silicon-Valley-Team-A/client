@@ -38,7 +38,7 @@ export default function MyPlayList() {
         <div className={$['playlist-container']}>
           {allPlaylist?.map((playlist: PlayListThumb, index) => {
             return (
-              <Link to={'/myplaylist/' + playlist.id} key={playlist.id}>
+              <Link to={'/myplaylist/' + playlist.id} key={playlist.id + index}>
                 <div className={$['playlist-center']}>
                   <PlayListComponents
                     id={playlist.id}

@@ -16,6 +16,7 @@ import { matchGenreToEng } from '../../utils/matchGenreToEng';
 import { useAppDispatch } from '../../store';
 import { setSongList } from '../../store/features/audioSlice';
 import { SetCSRF } from '../../api/Auth';
+import { isLogin } from '../../utils/isLogin';
 
 function MainPage() {
   const dispatch = useAppDispatch();
@@ -68,10 +69,15 @@ function MainPage() {
   };
 
   const saveToPlayList = (name: string) => {
+    const userId = isLogin();
+
+    if (!userId) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
     if (selectedMusic.length) {
-      // fetch
       const songInfo = {
-        user_id: 1,
+        user_id: +userId,
         name: name,
         tag: selectedGenre,
         songs: selectedMusic.map(({ selected, ...remain }) => {

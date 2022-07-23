@@ -11,7 +11,7 @@ export default function Footer() {
             <li>이용약관</li>
           </ul>
           <div className={$.more}>
-            <span className={$.team}>실리콘 밸리 팀 D - 8AD</span>
+            <span className={$.team}>실리콘 밸리 팀 D - 8DE</span>
             <span className={$.tel}>TEL.02.1111.2222</span>
           </div>
         </div>

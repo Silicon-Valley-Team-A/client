@@ -1,8 +1,8 @@
 import $ from './style.module.scss';
 import ImageUpload from '../../components/ImageUpload';
 import TextBox from '../../components/TextBox';
-import { firstText, secondText } from '../../__mocks/maintext';
-import { HeartBox, MusicFolder } from '../../Icon';
+import { firstText } from '../../__mocks/maintext';
+import { MusicFolder } from '../../Icon';
 import { memo, useEffect, useState } from 'react';
 import LoadedPlayList from '../../components/LoadedPlayList';
 import { LoadPlayList, SavePlayList } from '../../api/LoadPlayList';
@@ -17,6 +17,7 @@ import { useAppDispatch } from '../../store';
 import { setSongList } from '../../store/features/audioSlice';
 import { SetCSRF } from '../../api/Auth';
 import { isLogin } from '../../utils/isLogin';
+import Loading from '../../components/Loading';
 
 function MainPage() {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ function MainPage() {
   const [selectedMusic, setSelectedMusic] = useState<MusicInfo[]>([]); // 선택된 노래
   const [showPopup, setShowPopup] = useState(false);
   const [showInputModal, setShowInputModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     SetCSRF().catch(error => {
@@ -40,9 +42,11 @@ function MainPage() {
       formData.append('upload_image', selectedImage);
       formData.append('genre', matchGenreToEng(selectedGenre));
 
+      setIsLoading(true);
       LoadPlayList(formData)
         .then(data => {
           console.log(data);
+          setIsLoading(false);
           setImageUrl(data.image);
 
           const list = data.music.map((list: MusicInfo) => {
@@ -120,9 +124,11 @@ function MainPage() {
   return (
     <>
       <div className={$.content}>
-        <div className={$['pop-up-box']}>
-          {showPopup && <Popup text={'플레이 리스트 생성 완료'} />}
-        </div>
+        {showPopup && (
+          <div className={$['pop-up-box']}>
+            <Popup text={'플레이 리스트 생성 완료'} />
+          </div>
+        )}
 
         <div className={$['save-modal-box']}>
           {showInputModal && (
@@ -142,43 +148,50 @@ function MainPage() {
             </>
           )}
         </div>
+        {!isLoading ? (
+          <>
+            <section className={$['image-box']}>
+              {selectedGenre && (
+                <span className={$['genre-box']}>#{selectedGenre}</span>
+              )}
 
-        <section className={$['image-box']}>
-          {selectedGenre && (
-            <span className={$['genre-box']}>#{selectedGenre}</span>
-          )}
-
-          <ImageUpload
-            imageUrl={imageUrl}
-            setSelectedImage={setSelectedImage}
-            setImageUrl={setImageUrl}
-            setSelectedGenre={setSelectedGenre}
-          />
-        </section>
-
-        {selectedGenre && (
-          <section className={$['play-list-box']}>
-            <div className={$['more-option']}>
-              <Button
-                text={'플레이 리스트 저장'}
-                onClick={() => selectedMusic.length && setShowInputModal(true)}
+              <ImageUpload
+                imageUrl={imageUrl}
+                setSelectedImage={setSelectedImage}
+                setImageUrl={setImageUrl}
+                setSelectedGenre={setSelectedGenre}
               />
-              <Button text={'선택 재생'} onClick={playAudio} />
-              <Button
-                text={
-                  playList.length === selectedMusic.length
-                    ? '선택 해제'
-                    : '전체 선택'
-                }
-                onClick={selectAllOrClearMusic}
-              />
-            </div>
-            <LoadedPlayList
-              list={playList}
-              setPlayList={setPlayList}
-              setSelectedMusic={setSelectedMusic}
-            />
-          </section>
+            </section>
+
+            {selectedGenre && (
+              <section className={$['play-list-box']}>
+                <div className={$['more-option']}>
+                  <Button
+                    text={'플레이 리스트 저장'}
+                    onClick={() =>
+                      selectedMusic.length && setShowInputModal(true)
+                    }
+                  />
+                  <Button text={'선택 재생'} onClick={playAudio} />
+                  <Button
+                    text={
+                      playList.length === selectedMusic.length
+                        ? '선택 해제'
+                        : '전체 선택'
+                    }
+                    onClick={selectAllOrClearMusic}
+                  />
+                </div>
+                <LoadedPlayList
+                  list={playList}
+                  setPlayList={setPlayList}
+                  setSelectedMusic={setSelectedMusic}
+                />
+              </section>
+            )}
+          </>
+        ) : (
+          <Loading />
         )}
       </div>
 
@@ -187,11 +200,6 @@ function MainPage() {
           title={firstText.title}
           more={firstText.more}
           icon={<MusicFolder />}
-        />
-        <TextBox
-          title={secondText.title}
-          more={secondText.more}
-          icon={<HeartBox />}
         />
       </section>
     </>

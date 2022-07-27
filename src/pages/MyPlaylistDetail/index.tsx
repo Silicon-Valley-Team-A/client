@@ -24,6 +24,7 @@ interface LoadPlaylistInfo {
 export default function MyPlayListDetail() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
+  const { userId } = useAppSelector(state => state.user);
   const [allPlayList, setAllPlayList] = useState<MusicInfo[]>([]);
   const [hashtag, setHashTag] = useState('');
   const [playlistTitle, setPlaylistTitle] = useState('');
@@ -52,9 +53,6 @@ export default function MyPlayListDetail() {
       });
   };
   useEffect(() => {
-    //const userId = localStorage.getItem('userId');
-    const { userId } = useAppSelector(state => state.user);
-    console.log(userId);
     if (userId && id) {
       getPlaylistTableData(id);
       getPlaylistDetailData({ userId, id });

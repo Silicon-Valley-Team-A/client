@@ -6,16 +6,18 @@ import { useEffect, useState } from 'react';
 export default function Header() {
   const navigate = useNavigate();
   const [auth, setAuth] = useState(false);
+
   useEffect(() => {
     checkAuthentication()
       .then(res => {
+        console.log(res);
         if (res.status === 'success') setAuth(true);
         else setAuth(false);
       })
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  });
 
   const onClickLogout = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,

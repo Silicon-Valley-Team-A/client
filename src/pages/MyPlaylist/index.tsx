@@ -12,7 +12,6 @@ export default function MyPlayList() {
   const [playlistTumbImg, setPlaylistThumbImg] = useState([]);
 
   const { userId } = useAppSelector(state => state.user);
-  console.log(userId);
 
   const getPlayListData = () => {
     if (userId) {

@@ -13,10 +13,9 @@ import Modal from '../../components/Modal';
 import ModalBack from '../../components/Modal/ModalBack';
 import GenreModal from '../../components/GenreModal';
 import { matchGenreToEng } from '../../utils/matchGenreToEng';
-import { useAppDispatch } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../store';
 import { setSongList } from '../../store/features/audioSlice';
 import { SetCSRF } from '../../api/Auth';
-import { isLogin } from '../../utils/isLogin';
 import Loading from '../../components/Loading';
 
 function MainPage() {
@@ -73,9 +72,8 @@ function MainPage() {
   };
 
   const saveToPlayList = (name: string) => {
-    const userId = isLogin();
-
-    if (!userId) {
+    const { userId } = useAppSelector(state => state.user);
+    if (userId === '-1') {
       alert('로그인이 필요합니다.');
       return;
     }

@@ -31,6 +31,7 @@ export const Register = async (SignupUser: SignupUser) => {
 export const checkAuthentication = async () => {
   try {
     const res = await AuthServices.getAuth();
+    console.log(res);
     return Promise.resolve(res.data);
   } catch (err) {
     Promise.resolve(err);

@@ -1,11 +1,21 @@
 import $ from './style.module.scss';
-import { LogOut } from '../../../api/Auth';
+import { LogOut, checkAuthentication } from '../../../api/Auth';
 import Logo from '../../Logo';
 import { Link, useNavigate } from 'react-router-dom';
-import { isLogin } from '../../../utils/isLogin';
-
+import { useEffect, useState } from 'react';
 export default function Header() {
   const navigate = useNavigate();
+  const [auth, setAuth] = useState(false);
+  useEffect(() => {
+    checkAuthentication()
+      .then(res => {
+        if (res.status === 'success') setAuth(true);
+        else setAuth(false);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   const onClickLogout = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -13,7 +23,6 @@ export default function Header() {
     LogOut()
       .then(res => {
         if (res.status === 'success') {
-          localStorage.removeItem('userId');
           alert('로그아웃 하였습니다');
           navigate(`/`);
         } else {
@@ -29,7 +38,7 @@ export default function Header() {
   const onClickPlaylist = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
   ) => {
-    isLogin() ? navigate('/myplaylist') : navigate('/signin');
+    auth ? navigate('/myplaylist') : navigate('/signin');
   };
 
   return (
@@ -41,7 +50,7 @@ export default function Header() {
           </Link>
         </div>
         <div>
-          {isLogin() ? (
+          {auth ? (
             <span onClick={onClickLogout}>로그아웃</span>
           ) : (
             <span>

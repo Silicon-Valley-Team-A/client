@@ -1,11 +1,17 @@
 import $ from '../style.module.scss';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthenticateUser, SetCSRF } from '../../../api/Auth';
+import { AuthenticateUser } from '../../../api/Auth';
 import { User } from '../../../types/auth';
+import { useAppDispatch } from '../../../store';
+import { setUserId } from '../../../store/features/userSlice';
 
 export default function Signin() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const setUserInfo = (user_id: string) => {
+    dispatch(setUserId(user_id));
+  };
 
   const [signinEmail, setSigninEmail] = useState('');
   const [signinPw, setSigninPw] = useState('');
@@ -31,7 +37,7 @@ export default function Signin() {
       AuthenticateUser(user)
         .then(res => {
           if (res.status === 'success') {
-            localStorage.setItem('userId', res.user_id);
+            setUserInfo(res.user_id);
             navigate('/');
           } else if (res.status === 'error') {
             {

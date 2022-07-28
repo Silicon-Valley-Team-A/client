@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { MusicInfo } from '../../types/main';
 import { LoadMyPlayListDetail } from '../../api/LoadMyPlayListDetail';
 import { setSongList } from '../../store/features/audioSlice';
-import { useAppDispatch } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../store';
 import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
 
 interface LoadUserPlaylistInfo {
@@ -24,6 +24,7 @@ interface LoadPlaylistInfo {
 export default function MyPlayListDetail() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
+  const { userId } = useAppSelector(state => state.user);
   const [allPlayList, setAllPlayList] = useState<MusicInfo[]>([]);
   const [hashtag, setHashTag] = useState('');
   const [playlistTitle, setPlaylistTitle] = useState('');
@@ -52,7 +53,6 @@ export default function MyPlayListDetail() {
       });
   };
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
     if (userId && id) {
       getPlaylistTableData(id);
       getPlaylistDetailData({ userId, id });

@@ -4,15 +4,16 @@ import PlayListComponents from '../../components/Playlist';
 import { Link } from 'react-router-dom';
 import { PlayListThumb } from '../../types/playlist';
 import { LoadMyPlayList } from '../../api/LoadMyPlayListDetail';
+import { useAppSelector } from '../../store';
 
 export default function MyPlayList() {
   const [userName, setUserName] = useState('');
   const [allPlaylist, setAllPlaylist] = useState<PlayListThumb[]>([]);
   const [playlistTumbImg, setPlaylistThumbImg] = useState([]);
 
-  const getPlayListData = () => {
-    const userId = localStorage.getItem('userId');
+  const { userId } = useAppSelector(state => state.user);
 
+  const getPlayListData = () => {
     if (userId) {
       LoadMyPlayList({ user_id: userId })
         .then(response => {

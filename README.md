@@ -1,46 +1,28 @@
-# Getting Started with Create React App
+# RECOMMADE FRONTEND
+사진을 인식하여 사진 속의 사물 등을 추출하여 해당 사진의 환경이나 상황과 어울리는 노래를 추천해줍니다. 사용자는 추천 받은 노래들을 통해 플레이리스트를 생성할 수 있습니다. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## USAGE EXAMPLE  
 
-In the project directory, you can run:
+[Demo Youtube Link](https://youtu.be/vs-1vnmwkQk)  
 
-### `yarn start`
+![VAP video2233947482](https://user-images.githubusercontent.com/63364990/181917485-07c54adb-9af6-4796-a356-47bc417af467.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## ARCHITECTURE  
+![image](https://user-images.githubusercontent.com/79822913/183542940-96ea7ca3-6167-4d39-9e0f-014853e88306.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Installation Process  
+```
+git clone https://github.com/Silicon-Valley-Team-A/client.git
+yarn install
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact Information  
+|NAME|김하은|신주영|
+|------|---|---|
+|PROFILE|![image](https://user-images.githubusercontent.com/79822913/183542843-65bbbe5d-c2ff-4654-92a3-dfe2e076a52e.png)|![image](https://user-images.githubusercontent.com/79822913/183542881-eb7f3f10-ca00-4ecb-baee-26905ded8338.png)|
+|GITHUB|[@harloxx](https://github.com/harloxx)|[@juyeong-s](https://github.com/juyeong-s)|
